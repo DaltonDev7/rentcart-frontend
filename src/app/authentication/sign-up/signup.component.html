@@ -1,1 +1,96 @@
-<p>signup works!</p>
+<div class="">
+    <div class="content-registro">
+
+        <div class="content-formulario">
+            
+            <form >
+                <h2 class="title">Crea tu cuenta</h2>
+                <div class="row">
+                    <h3 class="title-2">Datos Personales</h3>
+                    <div class="col-12">
+                        <div class="form-group mb-3">
+                            <label for="">Nombres</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group mb-3">
+                            <label for="">Apellidos</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group  mb-3">
+
+                            <label for="">Sexo</label>
+                            <!-- <ng-select 
+                            placeholder="Seleccione"
+                              [items]= "sexoCombox"
+                              bindLabel="text"
+                              bindValue="id" 
+                              formControlName="IdSexo">
+                            </ng-select> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group mb-3">
+                            <label for="">UserName</label>
+
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h3 class="title-2">Cuenta</h3>
+                    <div class="col-12">
+                        <div class="form-group mb-3">
+                            <label for="">Correo</label>
+                            <input type="email" class="form-control" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group mb-3">
+                            <label for="">Contraseña</label>
+                            <input type="password" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group mb-3">
+                            <label for="">Confirmar contraseña</label>
+                            <input type="password" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group d-flex justify-content-end ">
+                        <button
+                        class="btn btn-success btn-registrate">Registrarse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-login">
+            <p class="cuenta">Si ya tienes una cuenta</p>
+            <a [routerLink]="['/login']">Inicia Sesion</a>
+        </div>
+    </div>
+</div>
