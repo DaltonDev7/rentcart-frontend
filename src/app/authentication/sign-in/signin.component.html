@@ -1,1 +1,35 @@
-<p>signin works!</p>
+<div class="section-main">
+    <div class="section-image">
+        <img src="assets/images/imagen8.jpg" class="img-config" alt="">
+    </div>
+    <div class="section-login">
+        <div class="section-titulo">
+            <h2>Iniciar Sesion</h2>
+        </div>
+        <div class="section-formulario">
+            <form>
+                <div class="form-group mb-3">
+                    <label for="">Email</label>
+                    <input type="email" class="form-control negate-invalid">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">Contraseña</label>
+                    <input type="password" class="form-control negate-invalid">
+                </div>
+                <div class="form-group">
+                    <div class="section-olvidar">
+                        <a class="olvidar">¿Olvidó su contraseña?</a>
+                    </div>
+                </div>
+                <div class="section-button">
+                    <button class="btn btn-base">
+                        Iniciar Sesión</button>
+                </div>
+            </form>
+            <div class="constent-registro">
+                <p class="cuenta">¿No tienes cuenta?</p>
+                <a [routerLink]="['/registrate']">Regístrate</a>
+            </div>
+        </div>
+    </div>
+</div>

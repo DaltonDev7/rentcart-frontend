@@ -5,7 +5,51 @@
 //bootstrap
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 
+//ng prime
+@import '../node_modules/primeicons/primeicons.css';
+@import '../node_modules/primeng/resources/themes/lara-light-indigo/theme.css';
+@import '../node_modules/primeng/resources/primeng.min.css';
+
+
+//fonts
+@font-face{
+    font-family:'lilita-one';
+    src: url('assets/fonts/LilitaOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'montserrat-medium';
+    src: url('assets/fonts/montserrat/Montserrat-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'montserrat-regular';
+    src: url('assets/fonts/montserrat/Montserrat-Regular.ttf');
+}
+
+
+
+
+
 
 body{
     background-color: #F4F6F9 !important;
+}
+
+
+
+
+
+
+//boton base
+.btn-base{
+    width: 100%;
+    font-family: 'montserrat-medium';
+    font-weight: 600;
+    background: #5854E5;
+    border: none;
+    color: #fff;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 12px;
 }

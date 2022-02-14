@@ -1,9 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ProfileSelectionComponent } from './profile-selection/profile-selection.component';
 
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule),
+  },
+  {
+    path: 'seleccion-perfil',
+    component: ProfileSelectionComponent,
+  },
   {
     path: 'login',
     loadChildren: () => import('./authentication/sign-in/sigin.module').then(m => m.SigInModule)
@@ -24,7 +35,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  exports : [
+  exports: [
     RouterModule
   ]
 })
