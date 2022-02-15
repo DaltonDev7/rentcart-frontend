@@ -9,6 +9,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { environment } from 'src/environments/environment';
 import { HomeComponent } from './home/home.component';
 import { ProfileSelectionComponent } from './profile-selection/profile-selection.component';
+import { MenuModule } from './shared/menu/menu.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +20,7 @@ import { ProfileSelectionComponent } from './profile-selection/profile-selection
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MenuModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([])
