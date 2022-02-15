@@ -1,9 +1,13 @@
 
-
 .section-menu,
 .section-opciones,
-.section-user{
+.section-user,
+.logo{
     display: flex;
+}
+
+.logo{
+    font-family: 'ubuntu-bold';
 }
 
 .section-menu{
@@ -20,7 +24,21 @@
 }
 
 .section-opciones p{
+    font-family: 'opensans-light';
     margin-bottom: 0;
+}
+
+.op-menu{
+    margin-right: 14px;
+}
+
+.op-user{
+    margin-right: 10px;
+}
+
+
+.section-user{
+    font-family: 'opensans-regular';
 }
 
 .icon-config{
