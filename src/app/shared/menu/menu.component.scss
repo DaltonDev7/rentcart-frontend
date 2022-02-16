@@ -1,9 +1,19 @@
 
-
 .section-menu,
 .section-opciones,
-.section-user{
+.section-user,
+.logo{
     display: flex;
+}
+
+.logo{
+    font-family: 'ubuntu-bold';
+}
+
+.utencilio-icon{
+    color: #1d4e89;
+    font-size: 22px;
+    margin-right: 6px;
 }
 
 .section-menu{
@@ -20,9 +30,48 @@
 }
 
 .section-opciones p{
+    font-family: 'opensans-light';
     margin-bottom: 0;
+}
+
+.op-menu{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.op-menu:hover{
+    background-color: #1d4e89;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.op-user{
+    margin-right: 10px;
+}
+
+
+.section-user{
+    font-family: 'opensans-regular';
 }
 
 .icon-config{
     color: aqua;
 }
+
+.icon-user{
+    font-size: 18px;
+}
+
+
+
+@media (max-width: 700px) {
+    .section-menu{
+
+        padding-left: 55px;
+        padding-right: 55px;
+
+    }
+   
+  }

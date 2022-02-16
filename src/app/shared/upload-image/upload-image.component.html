@@ -1,0 +1,42 @@
+
+<!-- BOTON ELEGIR IMAGEN -->
+<div class="d-flex justify-content-center">
+    <input type="file" id="file" style="display: none;" (change)="fileChangeEvent($event)">
+    <label class="imagen-personalizado" for="file">Elegir Imagen</label>
+</div>
+
+
+
+<!-- MOSTRAR MODAL -->
+<p-dialog header="Iamgen" [(visible)]="displayBasic" [style]="{width: '50vw'}" [baseZIndex]="10000">
+   
+    <image-cropper 
+    (imageLoaded)="imageLoaded($event)" 
+    (imageCropped)="imageCropped($event)" 
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()" 
+    [aspectRatio]="1/ 1" 
+   
+   
+    [cropperMinWidth]="800"
+    [cropperMinHeight]="800"
+   
+    [cropperMaxHeight]="800"
+    [cropperMaxHeight]="800"
+   
+    [onlyScaleDown]="false"
+    [maintainAspectRatio]="true"
+    [imageChangedEvent]="imageChangedEvent">
+   </image-cropper>
+    
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple type="button"  icon="pi pi-check" (click)="configImageTerminado(true)" label="Listo" class="p-button-success"></button>
+        <button pButton pRipple type="button"  icon="pi pi-times"  (click)="configImageTerminado(false)"  label="Cancelar" class="p-button-danger"></button>
+    </ng-template>
+
+</p-dialog>
+
+
+<!-- MOSTRAR IMAGEN CORTADA -->
+<img *ngIf="croppedImage" [src]="croppedImage" alt="" style="width: 300px; height: 300px;">
