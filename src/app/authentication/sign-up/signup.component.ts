@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ComboxboxService } from '../../core/services/comboxbox.service';
+import { Combox } from '../../core/interfaces/combox';
+import { LoadedImage } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  password!: string;
+  sexoCombox: Combox[] = []
+
+  showImagenUpload: boolean = false
+  fotoTransformada: any
+
+  constructor(private comboxService: ComboxboxService) { }
 
   ngOnInit(): void {
+    this.sexoCombox = this.comboxService.sexoCombox
   }
+
+
+  checkValue(): void {
+    this.showImagenUpload = !this.showImagenUpload
+  }
+
+  capturarImagenUsuario(valor:any){
+    console.log(valor);
+  }
+
+
 
 }

@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 import { HomeComponent } from './home/home.component';
 import { ProfileSelectionComponent } from './profile-selection/profile-selection.component';
 import { MenuModule } from './shared/menu/menu.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +19,7 @@ import { MenuModule } from './shared/menu/menu.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MenuModule,
     StoreModule.forRoot({}, {}),
