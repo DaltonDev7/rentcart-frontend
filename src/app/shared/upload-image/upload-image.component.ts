@@ -9,11 +9,12 @@ import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 export class UploadImageComponent implements OnInit {
 
   @Output() imagenUsuario = new EventEmitter<string>();
+  imgUserFile: string = '';
 
+  //atributos cropper-js
   imageChangedEvent: any;
   croppedImage: any = '';
   displayBasic: boolean = false
-  imgUserFile: string = '';
 
   constructor() { }
 
@@ -27,7 +28,6 @@ export class UploadImageComponent implements OnInit {
   }
 
   configImageTerminado(terminado: boolean) {
-
     if (terminado) {
       this.displayBasic = false;
       this.imagenUsuario.emit(this.imgUserFile)
@@ -41,6 +41,8 @@ export class UploadImageComponent implements OnInit {
 
 
 
+
+  //METODOS EVENTS CROPPERS JS
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
     this.displayBasic = true;
