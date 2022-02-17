@@ -48,15 +48,13 @@ export class UploadImageComponent implements OnInit {
     this.displayBasic = true;
   }
 
-  async imageCropped(event: ImageCroppedEvent) {
+  imageCropped(event: ImageCroppedEvent) {
 
     const fileBeforeUpload = this.imageChangedEvent.target.files[0]
     this.croppedImage = event.base64;
 
-
     //this.fileToUpload = new File([event.base64], fileBeforeUpload.name, { type: fileBeforeUpload.type })
     this.convertToFile(this.croppedImage, fileBeforeUpload.name, fileBeforeUpload.type).then((data) => {
-      console.log(data);
       this.fileToUpload = data
     })
 
