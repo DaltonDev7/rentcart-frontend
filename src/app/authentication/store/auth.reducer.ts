@@ -19,13 +19,39 @@ export const initialState: UserState = {
 }
 
 
-export const scoreboardReducer = createReducer(
+export const AuthenticationReducer = createReducer(
     initialState,
 
-    on(authAction.LoginStart, (state) => {
+    on(authAction.LoginStart, (state, action) => {
+        console.log(action);
+        
         return {
             ...state,
             loading: true
+        }
+    }),
+
+    on(authAction.LoginSuccess, (state, action) => {
+        return {
+            ...state,
+            UserActual: action.payload,
+            loading: false,
+            redirect: action.redirect
+        }
+    }),
+
+    on(authAction.LoginError, (state, action) => {
+        return {
+            ...state,
+            loading: false,
+            activeRole: null
+        }
+    }),
+
+    on(authAction.SetRol, (state, action) => {
+        return {
+            ...state,
+            activeRole: action.payload
         }
     }),
 

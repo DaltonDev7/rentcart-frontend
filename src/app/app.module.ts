@@ -13,6 +13,8 @@ import { MenuModule } from './shared/menu/menu.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { reducer } from './state/app.state';
+import { AuthEffects } from './authentication/store/auth.effects';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +27,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     MenuModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([])
+    StoreModule.forRoot(reducer),
+    StoreDevtoolsModule.instrument({
+      name: 'AppFood DevTools',
+      maxAge: 25,
+      logOnly: environment.production
+    }),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

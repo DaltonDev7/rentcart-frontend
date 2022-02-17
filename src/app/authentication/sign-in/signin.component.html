@@ -7,14 +7,14 @@
             <h2>Iniciar Sesion</h2>
         </div>
         <div class="section-formulario">
-            <form>
+            <form [formGroup]="loginForm">
                 <div class="form-group mb-3">
                     <label for="">Email</label>
-                    <input type="email" class="form-control negate-invalid">
+                    <input type="email" class="form-control negate-invalid" formControlName="Email">
                 </div>
                 <div class="form-group mb-3">
                     <label for="">Contraseña</label>
-                    <input type="password" class="form-control negate-invalid">
+                    <input type="password" class="form-control negate-invalid" formControlName="PassWord">
                 </div>
                 <div class="form-group">
                     <div class="section-olvidar">
@@ -22,8 +22,11 @@
                     </div>
                 </div>
                 <div class="section-button">
-                    <button class="btn btn-base">
-                        Iniciar Sesión</button>
+                    <button 
+                    (click)="login()"
+                    class="btn btn-base">
+                        Iniciar Sesión
+                    </button>
                 </div>
             </form>
             <div class="constent-registro">

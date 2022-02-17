@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {ToastModule} from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
@@ -14,7 +14,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     NgSelectModule,
     ToastModule,
     DialogModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    FormsModule
     
   ],
   exports:[
@@ -22,7 +23,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     NgSelectModule,
     ToastModule,
     DialogModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    FormsModule
   ]
 })
 export class SharedModule { }
