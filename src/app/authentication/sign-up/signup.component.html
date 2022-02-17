@@ -3,106 +3,123 @@
 
         <div class="content-formulario">
 
+            <form [formGroup]="signUpForm">
+                <h2 class="title">Crea tu cuenta</h2>
+                <div class="row">
+                    <h3 class="title-2">Datos Personales</h3>
+                    <div class="col-12">
+                        <div class="form-group mb-3">
+                            <label for="">Nombres</label>
+                            <input type="text" class="form-control" formControlName="Nombres">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group mb-3">
+                            <label for="">Apellidos</label>
+                            <input type="text" class="form-control" formControlName="Apellidos">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group  mb-3">
 
-            <h2 class="title">Crea tu cuenta</h2>
-            <div class="row">
-                <h3 class="title-2">Datos Personales</h3>
-                <div class="col-12">
-                    <div class="form-group mb-3">
-                        <label for="">Nombres</label>
-                        <input type="text" class="form-control">
+                            <label for="">Sexo</label>
+                            <ng-select [clearable]="false" placeholder="Seleccione" [items]="sexoCombox"
+                                bindLabel="text" bindValue="id" formControlName="IdSexo">
+                            </ng-select>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-group mb-3">
-                        <label for="">Apellidos</label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-group  mb-3">
-
-                        <label for="">Sexo</label>
-                        <ng-select placeholder="Seleccione" [items]="sexoCombox" bindLabel="text" bindValue="id">
-                        </ng-select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-group mb-3">
-                        <label for="">UserName</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group mb-3">
+                            <label for="">UserName</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <input type="text" class="form-control" formControlName="UserName">
                             </div>
-                            <input type="text" class="form-control">
                         </div>
                     </div>
                 </div>
-            </div>
 
+                <div class="row">
+                    <div class="col-12" *ngIf="showSubirFotoSection">
+                        <div class="form-group  mb-3">
+
+                            <label for="">Deseas subir una foto de perfil?</label>
+
+                            <div class="d-flex justify-content-center">
+                                <label class="switch">
+                                    <input type="checkbox" (change)="checkValueSwitch()">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+
+                            <div *ngIf="showImagenUpload" class="d-flex justify-content-center">
+                                <upload-image (imagenUsuario)="capturarImagenUsuario($event)"> </upload-image>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <h3 class="title-2">Cuenta</h3>
+                        <div class="col-12">
+                            <div class="form-group mb-3">
+                                <label for="">Correo</label>
+                                <input type="email" class="form-control" formControlName="Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group mb-3">
+                                <label for="">Contraseña</label>
+                                <input type="password" class="form-control" formControlName="PassWord">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group mb-3">
+                                <label for="">Confirmar contraseña</label>
+                                <input type="password" class="form-control" formControlName="ConfirmedPassWord">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
             <div class="row">
                 <div class="col-12">
-                    <div class="form-group  mb-3">
-
-                        <label for="">Deseas subir una foto de perfil?</label>
-
-                        <div class="d-flex justify-content-center">
-                            <label class="switch">
-                                <input type="checkbox" (change)="checkValue()">
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
-
-                        <div *ngIf="showImagenUpload" class="d-flex justify-content-center">
-                            <upload-image (imagenUsuario)="capturarImagenUsuario($event)" > </upload-image>
-                        </div>
-
+                    <div class="form-group d-flex justify-content-end ">
+                        <button pButton pRipple type="button" [disabled]="!signUpForm.valid" label="Registrarse"
+                            (click)="registrarUsuario()" class="p-button-success  btn-registrate">
+                        </button>
                     </div>
                 </div>
-
-                <div class="row">
-                    <h3 class="title-2">Cuenta</h3>
-                    <div class="col-12">
-                        <div class="form-group mb-3">
-                            <label for="">Correo</label>
-                            <input type="email" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="form-group mb-3">
-                            <label for="">Contraseña</label>
-                            <input type="password" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="form-group mb-3">
-                            <label for="">Confirmar contraseña</label>
-                            <input type="password" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="form-group d-flex justify-content-end ">
-                            <button pButton pRipple type="button"  label="Registrarse" class="p-button-success  btn-registrate"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="content-login">
-                <p class="cuenta">Si ya tienes una cuenta</p>
-                <a [routerLink]="['/login']">Inicia Sesion</a>
             </div>
         </div>
+        <div class="content-login">
+            <p class="cuenta">Si ya tienes una cuenta</p>
+            <a [routerLink]="['/login']">Inicia Sesion</a>
+        </div>
     </div>
+</div>
+
+<p-toast position="bottom-left"></p-toast>
+<p-toast key="Key1" position="bottom-left"></p-toast>
+
+
+
+
+
+
+
+
+
+

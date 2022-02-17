@@ -19,11 +19,18 @@ export const initialState: UserState = {
 }
 
 
-// export const authReducer = createReducer(
-//     initialState,
-//     on(authAction.LoginStart, (state) => {
-//         return {
-//             return { ...state, loading: true }
-//         }
-//     })
-// );
+export const scoreboardReducer = createReducer(
+    initialState,
+
+    on(authAction.LoginStart, (state) => {
+        return {
+            ...state,
+            loading: true
+        }
+    }),
+
+
+
+
+
+);

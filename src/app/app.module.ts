@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { ProfileSelectionComponent } from './profile-selection/profile-selection.component';
 import { MenuModule } from './shared/menu/menu.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
     MenuModule,
+    HttpClientModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([])

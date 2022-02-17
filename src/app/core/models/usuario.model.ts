@@ -8,5 +8,5 @@ export interface Usuario {
     UserName?:string;
     Password?:string;
     IdSexo?:number;
-    IamgenPerfil?:string;
+    ImagenPerfil?:string;
 }

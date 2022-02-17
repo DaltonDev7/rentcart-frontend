@@ -9,7 +9,7 @@ import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 export class UploadImageComponent implements OnInit {
 
   @Output() imagenUsuario = new EventEmitter<string>();
-  imgUserFile: string = '';
+  fileToUpload: any;
 
   //atributos cropper-js
   imageChangedEvent: any;
@@ -30,7 +30,7 @@ export class UploadImageComponent implements OnInit {
   configImageTerminado(terminado: boolean) {
     if (terminado) {
       this.displayBasic = false;
-      this.imagenUsuario.emit(this.imgUserFile)
+      this.imagenUsuario.emit(this.fileToUpload)
     } else {
       this.displayBasic = false;
       this.croppedImage = ''
@@ -48,24 +48,40 @@ export class UploadImageComponent implements OnInit {
     this.displayBasic = true;
   }
 
-  imageCropped(event: ImageCroppedEvent) {
-    this.imgUserFile = this.imageChangedEvent.target.files[0]
+  async imageCropped(event: ImageCroppedEvent) {
+
+    const fileBeforeUpload = this.imageChangedEvent.target.files[0]
     this.croppedImage = event.base64;
+
+
+    //this.fileToUpload = new File([event.base64], fileBeforeUpload.name, { type: fileBeforeUpload.type })
+    this.convertToFile(this.croppedImage, fileBeforeUpload.name, fileBeforeUpload.type).then((data) => {
+      console.log(data);
+      this.fileToUpload = data
+    })
+
   }
 
   imageLoaded(image: LoadedImage) {
     console.log(image);
   }
 
-  cropperReady() {
-    // cropper ready
+  cropperReady(image: any) {
     console.log('cropperReady');
 
   }
   loadImageFailed() {
-    // show message
     console.log('loadImageFailed');
-
   }
+
+
+  private convertToFile(url: any, filename: any, mimeType: any) {
+    return (fetch(url)
+      .then(function (res) { return res.arrayBuffer(); })
+      .then(function (buf) { return new File([buf], filename, { type: mimeType }); })
+    );
+  }
+
+
 
 }
