@@ -12,9 +12,13 @@ import { ProfileSelectionComponent } from './profile-selection/profile-selection
 import { MenuModule } from './shared/menu/menu.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
 import { reducer } from './state/app.state';
 import { AuthEffects } from './authentication/store/auth.effects';
+import { JwtModule } from '@auth0/angular-jwt';
+import { tokenGetter } from './core/config/jwt-congif';
+import { TokenInterceptorService } from './core/interceptors/token-interceptor.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,14 +32,25 @@ import { AuthEffects } from './authentication/store/auth.effects';
     MenuModule,
     HttpClientModule,
     StoreModule.forRoot(reducer),
+    EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({
       name: 'AppFood DevTools',
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([AuthEffects])
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

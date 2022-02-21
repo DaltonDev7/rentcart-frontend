@@ -4,8 +4,10 @@ import { CommonModule } from '@angular/common';
 import { SigininRoutingModule } from './sigin-routing.module';
 import { SigninComponent } from './signin.component';
 import { SigninService } from './services/signin.service';
-import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from '../store/auth.effects';
 
 
 
@@ -14,10 +16,12 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     SigininRoutingModule,
-    SharedModule
+    SharedModule,
+  //  ReactiveFormsModule,
+ //   EffectsModule.forFeature([AuthEffects])
   ],
-  providers: [
-    SigninService
+  providers:[
+   // SigninService
   ]
 })
 export class SigInModule { }

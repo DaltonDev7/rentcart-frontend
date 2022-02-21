@@ -1,3 +1,4 @@
+import { Rol } from "./rol.model";
 
 
 export interface Usuario {
@@ -9,4 +10,5 @@ export interface Usuario {
     Password?:string;
     IdSexo?:number;
     ImagenPerfil?:string;
+    Roles:  Rol[]
 }

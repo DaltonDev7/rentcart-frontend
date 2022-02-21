@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { SigninService } from './services/signin.service';
 import * as fromApp from '../../state/app.state';
 import * as AuthActions from 'src/app/authentication/store/auth.actions'
-import { LoginDTO } from '../../core/models/login-dto';
+
 
 
 @Component({
@@ -18,11 +18,19 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private store: Store<fromApp.State>,
-    private signInService: SigninService
+    private signInService: SigninService,
+    public fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.signInService.getSignInFormBuilder()
+
+    //creando form
+    this.loginForm = this.fb.group({
+      Email: [null, [Validators.email]],
+      PassWord: [null]
+    })
+
+
   }
 
   login() {

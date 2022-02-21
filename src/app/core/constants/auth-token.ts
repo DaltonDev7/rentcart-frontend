@@ -1,0 +1,1 @@
+export const tokenName = 'secreto-qloq-2'
