@@ -4,41 +4,32 @@
             <div>
                 <i class="fa-solid fa-utensils utencilio-icon"></i>
             </div>
-            <div>
+            <div [routerLink]="['/']">
                 <h5>AppRecetas</h5>
             </div>
         </div>
         <div class="section-opciones">
-            <div class="op-menu cursor">
-                <p>Inicio</p>
+
+            <div *ngFor="let item of menuOpciones; index as i">
+
+                <div class="op-menu cursor" [routerLink]="[item.route]">
+                    <p>{{item.label}}</p>
+                </div>
             </div>
-            <div class="op-menu cursor">
-                <p>Recetas</p>
-            </div>
-            <div class="op-menu cursor">
-                <p>Populares</p>
-            </div>
+
         </div>
         <div class="section-user">
-            <div class="op-user cursor">
-                <i class="fa-solid fa-user  icon-user" pTooltip="Nueva publicacion" tooltipPosition="bottom"></i>
-               
+            <div class="op-user cursor" [routerLink]="['/add']">
+                <i class="fa-solid fa-pizza-slice icon-user" pTooltip="Nueva publicacion" tooltipPosition="bottom"></i>
             </div>
-            <div class="op-user cursor">
+            <div class="op-user cursor" [routerLink]="['/me']">
                 <i class="fa-solid fa-user  icon-user" pTooltip="Mi perfil" tooltipPosition="bottom"></i>
             </div>
             <div class="op-user cursor">
-                <i class="fa-solid fa-right-to-bracket icon-user" pTooltip="Iniciar Sesion" tooltipPosition="bottom"></i>
+                <i class="fa-solid fa-right-to-bracket icon-user" pTooltip="Iniciar Sesion"
+                    tooltipPosition="bottom"></i>
             </div>
         </div>
     </div>
 
 </header>
-
-<!-- <i class="fab fa-amazon fa-10x"></i>
-<i class="fa-solid fa-user-doctor  "></i>
-<i class="fa-solid fa-user-doctor  "></i>
-<i class="fa-solid fa-utensils "></i>
-<i class="fa-regular fa-user "></i>
-<i class="fa-solid fa-utensils "></i>
-<i class="fa-regular fa-user "></i> -->

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu.component';
 import {TooltipModule} from 'primeng/tooltip';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import {TooltipModule} from 'primeng/tooltip';
   ],
   imports: [
     CommonModule,
-    TooltipModule
+    TooltipModule,
+    RouterModule.forChild([])
   ],
   exports: [
     MenuComponent,

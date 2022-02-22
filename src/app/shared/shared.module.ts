@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
+import {CardModule} from 'primeng/card';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {ToastModule} from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
+
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -24,6 +27,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
   exports:[
     ReactiveFormsModule,
     NgSelectModule,
+    CardModule,
     FormsModule,
     ToastModule,
     DialogModule,

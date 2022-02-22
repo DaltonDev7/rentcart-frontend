@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MENU_OPCIONES } from 'src/app/core/constants/menu-opciones';
+import { MenuOpciones } from 'src/app/core/models/menu-opciones.model';
 
 
 @Component({
@@ -8,11 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-
-
+  //ATRIBUTOS
+  menuOpciones: MenuOpciones[] = MENU_OPCIONES
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

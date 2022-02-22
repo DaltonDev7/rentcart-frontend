@@ -9,6 +9,11 @@ export const getCurrentUser = createSelector(
     state => state.UserActual
 );
 
+export const getImgUsuarioRuta = createSelector(
+    getUserFeatureStatus,
+    state => state.UserActual.ImagenPerfil
+);
+
 export const getNameUser = createSelector(
     getUserFeatureStatus,
     state => state.UserActual.Nombres

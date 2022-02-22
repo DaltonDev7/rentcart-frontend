@@ -10,5 +10,7 @@ export interface Usuario {
     Password?:string;
     IdSexo?:number;
     ImagenPerfil?:string;
+    ImagenDefecto?:boolean
+    ImageFile?:string
     Roles:  Rol[]
 }
