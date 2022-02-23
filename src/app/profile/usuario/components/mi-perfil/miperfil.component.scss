@@ -1,0 +1,39 @@
+.profile{
+   display: flex;
+   justify-content: center;
+}
+
+.profile-content{
+    display:  flex;
+}
+
+.profile-image{
+ margin-left: 74px;
+ margin-right:74px;
+}
+
+.profile-image img{
+    width: 250px;
+    border-radius: 250px;
+}
+
+
+.profile-edit{
+    display: flex;
+    margin-bottom: 20px;
+    font-family: 'ubuntu-bold';
+}
+
+.profile-title{
+    display: flex;
+    align-items: center;
+}
+
+.button-editar{
+    margin-left: 16px;
+}
+
+.profile-username{
+    font-size: 22px;
+    font-family: 'opensans-light';
+}
