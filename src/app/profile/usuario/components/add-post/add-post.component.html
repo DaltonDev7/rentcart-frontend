@@ -1,1 +1,115 @@
-<p>add-post works!</p>
+<div class="container">
+
+    <div class="addpost">
+        <div class="">
+            <div class="addpost-titulo">
+                <h2>Nueva receta</h2>
+            </div>
+        </div>
+        <div class="addpost-formulario">
+
+            <form [formGroup]="postForm">
+                <div class="form-group mb-3">
+                    <label for="">Titulo</label>
+                    <input type="text" class="form-control" formControlName="Titulo">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="">Descripcion</label>
+                    <textarea class="form-control" formControlName="Descripcion"></textarea>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="">Cantidad de personas</label>
+                    <input type="number" class="form-control" formControlName="CantidadPersona">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="">Dificultad</label>
+                    <input type="text" class="form-control" formControlName="NivelDificultad">
+                </div>
+
+                <h4>Pasos</h4>
+
+                <div *ngFor="let pasos of pasosReceta.controls; index as i; last as isLast">
+
+                    <label for="">Paso {{i+1}}</label>
+                    <div class="d-flex">
+                        <div class="margin-rigth4">
+                            <input type="text" class="form-control " [formControl]="getPasoRecetaControlByIndex(i)">
+                        </div>
+                        <div class="d-flex">
+                            <div>
+                                <button pButton pRipple type="button" icon="pi pi-times" *ngIf="pasosReceta.length > 1"
+                                    (click)="removePasoRecetaControl(i)"
+                                    class="p-button-rounded p-button-danger p-button-raised p-button-text"></button>
+                            </div>
+                            <div>
+                                <button pButton pRipple type="button" icon="pi pi-check" *ngIf="isLast"
+                                    (click)="addPasosRecetas()"
+                                    class="p-button-rounded p-button-raised p-button-text"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Ingredientes</h4>
+
+                <div *ngFor="let pasos of ingredientesReceta.controls; index as i; last as isLast">
+
+                    <label for="">ingrediente {{i+1}}</label>
+                    <div class="d-flex">
+                        <div class="margin-rigth4">
+                            <input type="text" class="form-control "
+                                [formControl]="getIngredienteRecetaControlByIndex(i)">
+                        </div>
+                        <div class="d-flex">
+                            <div>
+                                <button pButton pRipple type="button" icon="pi pi-times"
+                                    *ngIf="ingredientesReceta.length > 1" (click)="removeIngredienteRecetaControl(i)"
+                                    class="p-button-rounded p-button-danger p-button-raised p-button-text"></button>
+                            </div>
+                            <div>
+                                <button pButton pRipple type="button" icon="pi pi-check" *ngIf="isLast"
+                                    (click)="addIngredienteReceta()"
+                                    class="p-button-rounded p-button-raised p-button-text"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="">Valor nutricional?</label>
+                    <input type="text" class="form-control">
+                </div>
+
+                <h4>Nutricion</h4>
+                <div class="form-group mb-3">
+                    <label for="">Calorias</label>
+                    <input type="text" class="form-control" >
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">Grasas</label>
+                    <input type="text" class="form-control" >
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">Azucares</label>
+                    <input type="text" class="form-control" >
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">Proteinas</label>
+                    <input type="text" class="form-control" >
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">Carbohidratos</label>
+                    <input type="text" class="form-control" >
+                </div>
+
+                <div>
+                    <button pButton pRipple type="button" label="Guargar" class="p-button-success"></button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

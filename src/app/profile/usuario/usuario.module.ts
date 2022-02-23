@@ -6,7 +6,8 @@ import { MiperfilComponent } from './components/mi-perfil/miperfil.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ImagenPerfilModule } from '../../shared/show-imagen-perfil/imagen-perfil.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostService } from './services/post.service';
 
 
 @NgModule({
@@ -19,7 +20,12 @@ import { ImagenPerfilModule } from '../../shared/show-imagen-perfil/imagen-perfi
     CommonModule,
     UsuarioRoutingModule,
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
     ImagenPerfilModule
+  ],
+  providers :[
+    PostService
   ]
 })
 export class UsuarioModule { }

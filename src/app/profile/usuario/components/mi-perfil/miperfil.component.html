@@ -3,13 +3,14 @@
         <div class="profile-content">
             <div class="profile-image">
                 <div>
-                    <img src="assets/images/profile-default/boy.jpg" alt="">
+                    <imagen-perfil> </imagen-perfil>
+                    <!-- <img src="assets/images/profile-default/boy.jpg" alt=""> -->
                 </div>
             </div>
             <div class="profile-info">
                 <div class="profile-edit">
                     <div class="profile-title">
-                        <h3>Dalton Tejada</h3>
+                        <h3>{{usuario?.Nombres}}  {{usuario?.Apellidos}}</h3>
                     </div>
                     <div class="button-editar">
                         <button pButton pRipple type="button" label="Editar perfil" class="p-button-raised p-button-info p-button-text"></button>
@@ -19,7 +20,7 @@
                     </div>
                 </div>
                 <div class="profile-username">
-                    <p>Daltonrd</p>
+                    <p>{{usuario.UserName}}</p>
                 </div>
             </div>
         </div>

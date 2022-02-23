@@ -11,18 +11,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 
 @NgModule({
-  declarations: [
 
-  ],
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    NgSelectModule,
-    ToastModule,
-    DialogModule,
-    FormsModule,
-    ConfirmDialogModule,
-    
+
   ],
   exports:[
     ReactiveFormsModule,
