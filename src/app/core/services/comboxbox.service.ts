@@ -19,4 +19,17 @@ export class ComboxboxService {
     }
   ]
 
+  shortAnswers: Combox[] = [
+    {
+      id: 1,
+      text: 'SI'
+    },
+    {
+      id: 2,
+      text: 'NO'
+    }
+  ]
+
+  
+
 }

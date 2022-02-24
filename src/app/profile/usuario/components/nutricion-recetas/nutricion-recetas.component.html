@@ -1,0 +1,52 @@
+<h4>Nutricion</h4>
+<form [formGroup]="nutricionForm">
+
+    <div class="form-group mb-3">
+        <label for="">¿Valor nutricional?</label>
+        <ng-select [items]="shortAnswers" formControlName="ValorNutricional" [clearable]="false" bindLabel="text" bindValue="id" placeholder="Seleccione"
+            class="state-error">
+            <ng-template ng-typetosearch-tmp>
+                <div class="ng-option disabled">
+                    Empieza a escribir...
+                </div>
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                <div>
+                    {{ item.text }}
+                </div>
+            </ng-template>
+            <ng-template ng-notfound-tmp let-searchTerm="searchTerm">
+                <div class="ng-option disabled">
+                    Ningun dato encontrado para "{{ searchTerm }}"
+                </div>
+            </ng-template>
+        </ng-select>
+    </div>
+    <ng-template *ngIf="false">
+        <div class="form-group mb-3">
+            <label for="">Calorias</label>
+            <input type="text" class="form-control" formControlName="Calorias">
+        </div>
+        <div class="form-group mb-3">
+            <label for="">Grasas</label>
+            <input type="text" class="form-control" formControlName="Grasas">
+        </div>
+        <div class="form-group mb-3">
+            <label for="">Azucares</label>
+            <input type="text" class="form-control" formControlName="Azucares">
+        </div>
+        <div class="form-group mb-3">
+            <label for="">Proteinas</label>
+            <input type="text" class="form-control" formControlName="Proteinas">
+        </div>
+        <div class="form-group mb-3">
+            <label for="">Sodio</label>
+            <input type="text" class="form-control" formControlName="Sodio">
+        </div>
+        <div class="form-group mb-3">
+            <label for="">Carbohidratos</label>
+            <input type="text" class="form-control" formControlName="Carbohidratos">
+        </div>
+    </ng-template>
+
+</form>

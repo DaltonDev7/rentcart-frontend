@@ -17,6 +17,7 @@ import { AuthEffects } from './authentication/store/auth.effects';
 import { JwtModule } from '@auth0/angular-jwt';
 import { tokenGetter } from './core/config/jwt-congif';
 import { TokenInterceptorService } from './core/interceptors/token-interceptor.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { TokenInterceptorService } from './core/interceptors/token-interceptor.s
     AppRoutingModule,
     MenuModule,
     HttpClientModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducer),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({

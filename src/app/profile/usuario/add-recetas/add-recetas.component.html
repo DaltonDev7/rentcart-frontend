@@ -1,0 +1,25 @@
+<div class="container">
+
+    <div class="addpost">
+        <div class="">
+            <div class="addpost-titulo">
+                <h2>Nueva receta</h2>
+            </div>
+        </div>
+        <div class="addpost-formulario">
+
+                <app-add-post [postForm]="addRecetasManagerServices.getPostForm()"> </app-add-post>
+
+                <app-pasos-recetas [pasosRecetaForm]="addRecetasManagerServices.getPasosRecetasForm()"> </app-pasos-recetas>
+
+                <app-ingrediente-recetas [ingredienteRecetasForm]="addRecetasManagerServices.getIngredientesReecetasForm()"> </app-ingrediente-recetas>
+
+                <app-nutricion-recetas [nutricionForm]="addRecetasManagerServices.getNutricionRecetaForm()" > </app-nutricion-recetas>
+
+                <div>
+                    <button pButton pRipple type="button" label="Guargar" class="p-button-success" (click)="onSave()"></button>
+                </div>
+
+        </div>
+    </div>
+</div>

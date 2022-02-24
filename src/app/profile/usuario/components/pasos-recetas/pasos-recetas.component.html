@@ -1,0 +1,25 @@
+<div class="row">
+    <h4>Pasos</h4>
+
+    <div *ngFor="let pasos of pasosRecetaForm.controls; index as i; last as isLast">
+
+        <label for="">Paso {{i+1}}</label>
+        <div class="d-flex">
+            <div class="margin-rigth4 col-10">
+                <input type="text" class="form-control " [formControl]="getPasoRecetaControlByIndex(i)">
+            </div>
+            <div class="d-flex col-2">
+                <div>
+                    <button pButton pRipple type="button" icon="pi pi-times" *ngIf="pasosRecetaForm.length > 1"
+                        (click)="removePasoRecetaControl(i)"
+                        class="p-button-rounded p-button-danger p-button-raised p-button-text"></button>
+                </div>
+                <div>
+                    <button pButton pRipple type="button" icon="pi pi-check" *ngIf="isLast" (click)="addPasosRecetas()"
+                        class="p-button-rounded p-button-raised p-button-text"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

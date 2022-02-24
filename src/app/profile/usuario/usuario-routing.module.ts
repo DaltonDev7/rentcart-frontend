@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeUsuarioComponent } from './components/home-usuario/home-usuario.component';
 import { MiperfilComponent } from './components/mi-perfil/miperfil.component';
-import { AddPostComponent } from './components/add-post/add-post.component';
+
 
 
 
@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'add',
-    component: AddPostComponent
+    loadChildren: () => import('./add-recetas/add-recetas.module').then(m => m.AddRecetasModule)
   },
   {
     path: 'recetas',
