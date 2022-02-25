@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormService } from 'src/app/core/services/form.service';
 import { AddRecetasManagerService } from './add-recetas-manager.service';
 
 @Component({
@@ -9,14 +10,15 @@ import { AddRecetasManagerService } from './add-recetas-manager.service';
 export class AddRecetasComponent implements OnInit {
 
   constructor(
-    public addRecetasManagerServices : AddRecetasManagerService
+    public formService: FormService,
+    public addRecetasManagerServices: AddRecetasManagerService
   ) { }
 
   ngOnInit(): void {
     this.addRecetasManagerServices.setForms();
   }
 
-  onSave(){
+  onSave() {
     this.addRecetasManagerServices.save()
   }
 

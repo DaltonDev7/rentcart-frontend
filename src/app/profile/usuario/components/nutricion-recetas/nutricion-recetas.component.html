@@ -22,7 +22,7 @@
             </ng-template>
         </ng-select>
     </div>
-    <ng-template *ngIf="false">
+    <ng-container *ngIf="valorNutricional">
         <div class="form-group mb-3">
             <label for="">Calorias</label>
             <input type="text" class="form-control" formControlName="Calorias">
@@ -47,6 +47,6 @@
             <label for="">Carbohidratos</label>
             <input type="text" class="form-control" formControlName="Carbohidratos">
         </div>
-    </ng-template>
+    </ng-container>
 
 </form>

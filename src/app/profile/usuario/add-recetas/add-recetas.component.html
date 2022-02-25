@@ -8,13 +8,15 @@
         </div>
         <div class="addpost-formulario">
 
-                <app-add-post [postForm]="addRecetasManagerServices.getPostForm()"> </app-add-post>
+                <app-add-post [postForm]="formService.getPostForm()"> </app-add-post>
 
-                <app-pasos-recetas [pasosRecetaForm]="addRecetasManagerServices.getPasosRecetasForm()"> </app-pasos-recetas>
+                <app-pasos-recetas [pasosRecetaForm]="formService.getPasosRecetasForm()"> </app-pasos-recetas>
 
-                <app-ingrediente-recetas [ingredienteRecetasForm]="addRecetasManagerServices.getIngredientesReecetasForm()"> </app-ingrediente-recetas>
+                <app-ingrediente-recetas [ingredienteRecetasForm]="formService.getIngredientesReecetasForm()"> </app-ingrediente-recetas>
 
-                <app-nutricion-recetas [nutricionForm]="addRecetasManagerServices.getNutricionRecetaForm()" > </app-nutricion-recetas>
+                <app-nutricion-recetas [nutricionForm]="formService.getNutricionRecetaForm()" > </app-nutricion-recetas>
+
+                <app-imagenes-post [imagenPostForm]="formService.getImagenesPostForm()"> </app-imagenes-post>
 
                 <div>
                     <button pButton pRipple type="button" label="Guargar" class="p-button-success" (click)="onSave()"></button>

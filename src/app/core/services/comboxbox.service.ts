@@ -30,6 +30,26 @@ export class ComboxboxService {
     }
   ]
 
-  
+  nivelDificultad: Combox[] = [
+    {
+      id: 1,
+      text: 'Facil'
+    },
+    {
+      id: 2,
+      text: 'Moderado'
+    },
+    {
+      id: 3,
+      text: 'Dificil'
+    },
+    {
+      id: 4,
+      text: 'Muy dificil'
+    },
+
+  ]
+
+
 
 }
