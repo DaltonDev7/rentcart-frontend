@@ -23,8 +23,7 @@ export const AuthenticationReducer = createReducer(
     initialState,
 
     on(authAction.LoginStart, (state, action) => {
-        //  console.log(action);
-
+      
         return {
             ...state,
             loading: true
@@ -32,8 +31,7 @@ export const AuthenticationReducer = createReducer(
     }),
 
     on(authAction.LoginSuccess, (state, action) => {
-        //  console.log(action);
-
+    
         return {
             ...state,
             UserActual: action.payload,
@@ -58,8 +56,7 @@ export const AuthenticationReducer = createReducer(
     }),
 
     on(authAction.AutoLogin, (state, action) => {
-        console.log('reducer auto login');
-        
+     
         return {
             ...state,
             loading: false,

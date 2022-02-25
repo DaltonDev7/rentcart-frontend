@@ -131,8 +131,6 @@ export class AuthEffects {
                 let token = localStorage.getItem(tokenName);
                 let tokenExpired = this.jwtHelper.isTokenExpired(token);
 
-                console.log('entro  aqui  auto login');
-
                 if (!token) {
 
                     this.router.navigate(['/login']);
@@ -160,9 +158,6 @@ export class AuthEffects {
         ),
         { dispatch: false }
     )
-
-
-
 
 
 }
