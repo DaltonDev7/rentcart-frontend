@@ -7,6 +7,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AddRecetasManagerService } from './add-recetas-manager.service';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { UploadImageModule } from 'src/app/shared/upload-image/upload-image.module';
+import { EffectsModule } from '@ngrx/effects';
+import { PostRecetasEffects } from '../store/post-recetas.effects';
 
 
 
@@ -19,7 +22,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AddRecetasRoutingModule,
     FormsModule,
     SharedModule,
-    ComponentesRecetasModule
+    ComponentesRecetasModule,
+    UploadImageModule,
+    EffectsModule.forFeature([PostRecetasEffects])
   ],
   providers:[
     AddRecetasManagerService,

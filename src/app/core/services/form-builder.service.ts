@@ -15,7 +15,8 @@ export class FormBuilderService {
       Titulo: [null, [Validators.required]],
       Descripcion: [null],
       CantidadPersona: [null, [Validators.required]],
-      NivelDificultad: [null, [Validators.required]]
+      IdNivelDificultad: [null, [Validators.required]],
+      IdUsuario: [null]
     })
   }
 
@@ -40,7 +41,12 @@ export class FormBuilderService {
       Proteinas: [null],
       Sodio: [null],
       Carbohidratos: [null],
+    })
+  }
 
+  getImagenesPostFormBuilder() {
+    return this.fb.group({
+      SuibrImagenes: [null, Validators.required]
     })
   }
 

@@ -25,8 +25,8 @@
             <div class="op-user cursor" [routerLink]="['/me']">
                 <i class="fa-solid fa-user  icon-user" pTooltip="Mi perfil" tooltipPosition="bottom"></i>
             </div>
-            <div class="op-user cursor">
-                <i class="fa-solid fa-right-to-bracket icon-user" pTooltip="Iniciar Sesion"
+            <div class="op-user cursor" (click)="logout()">
+                <i class="fa-solid fa-right-to-bracket icon-user" pTooltip="Cerrar Sesion"
                     tooltipPosition="bottom"></i>
             </div>
         </div>

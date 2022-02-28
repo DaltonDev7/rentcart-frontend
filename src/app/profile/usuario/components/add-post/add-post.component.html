@@ -16,6 +16,23 @@
 
     <div class="form-group mb-3">
         <label for="">Dificultad</label>
-        <input type="text" class="form-control" formControlName="NivelDificultad">
+        <ng-select [items]="nivelDificultadCombox" formControlName="IdNivelDificultad" [clearable]="false" bindLabel="text" bindValue="id" placeholder="Seleccione"
+        class="state-error">
+        <ng-template ng-typetosearch-tmp>
+            <div class="ng-option disabled">
+                Empieza a escribir...
+            </div>
+        </ng-template>
+        <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+            <div>
+                {{ item.text }}
+            </div>
+        </ng-template>
+        <ng-template ng-notfound-tmp let-searchTerm="searchTerm">
+            <div class="ng-option disabled">
+                Ningun dato encontrado para "{{ searchTerm }}"
+            </div>
+        </ng-template>
+    </ng-select>
     </div>
 </form>

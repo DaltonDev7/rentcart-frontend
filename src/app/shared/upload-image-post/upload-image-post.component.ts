@@ -1,17 +1,19 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
-import { ImagenUploadConfig } from '../../core/models/imagen-upload-confi.model';
 
 @Component({
-  selector: 'upload-image',
-  templateUrl: './upload-image.component.html',
-  styleUrls: ['./upload-image.component.scss']
+  selector: 'app-upload-image-post',
+  templateUrl: './upload-image-post.component.html',
+  styleUrls: ['./upload-image-post.component.scss']
 })
-export class UploadImageComponent implements OnInit {
+export class UploadImagePostComponent implements OnInit {
 
-  @Output() imagenUsuario = new EventEmitter<string>();
-  @Input() imagenTipo: string;
-  fileToUpload: any;
+  @Output() imagenesPost = new EventEmitter<any[]>();
+
+
+  filesToUpload: any[5] = [];
+  filesToShow: any[5] = []
+  imagenSelect: any
 
   //atributos cropper-js
   imageChangedEvent: any;
@@ -25,7 +27,6 @@ export class UploadImageComponent implements OnInit {
   }
 
 
-
   showBasicDialog() {
     this.displayBasic = true;
   }
@@ -33,11 +34,20 @@ export class UploadImageComponent implements OnInit {
   configImageTerminado(terminado: boolean) {
     if (terminado) {
       this.displayBasic = false;
-      this.imagenUsuario.emit(this.fileToUpload)
+
+      let reader = new FileReader()
+      reader.readAsDataURL(this.imagenSelect)
+      reader.onload = (event) => {
+        this.filesToUpload.push(this.imagenSelect)
+        this.filesToShow.push(event.target.result)
+        this.imagenesPost.emit(this.filesToUpload)
+      }
+
+
     } else {
       this.displayBasic = false;
       this.croppedImage = ''
-      this.imagenUsuario.emit('')
+      this.imagenesPost.emit([])
     }
 
   }
@@ -58,7 +68,7 @@ export class UploadImageComponent implements OnInit {
 
     //this.fileToUpload = new File([event.base64], fileBeforeUpload.name, { type: fileBeforeUpload.type })
     this.convertToFile(this.croppedImage, fileBeforeUpload.name, fileBeforeUpload.type).then((data) => {
-      this.fileToUpload = data
+      this.imagenSelect = data
     })
 
   }
@@ -75,6 +85,12 @@ export class UploadImageComponent implements OnInit {
     console.log('loadImageFailed');
   }
 
+  eliminarFoto(index: number) {
+    this.filesToUpload.splice(index, 1)
+    this.filesToShow.splice(index, 1)
+    this.imagenesPost.emit(this.filesToUpload)
+  }
+
 
   private convertToFile(url: any, filename: any, mimeType: any) {
     return (fetch(url)
@@ -82,7 +98,5 @@ export class UploadImageComponent implements OnInit {
       .then(function (buf) { return new File([buf], filename, { type: mimeType }); })
     );
   }
-
-
 
 }
