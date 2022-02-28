@@ -12,6 +12,8 @@ import { ImagenPerfilModule } from 'src/app/shared/show-imagen-perfil/imagen-per
 import { UploadImageModule } from 'src/app/shared/upload-image/upload-image.module';
 import { UploadImagePostModule } from 'src/app/shared/upload-image-post/upload-image-post.module';
 import {BadgeModule} from 'primeng/badge';
+import {MessageModule} from 'primeng/message';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import {BadgeModule} from 'primeng/badge';
     ImagenPerfilModule,
     UploadImageModule,
     UploadImagePostModule,
-    BadgeModule
+    BadgeModule,
+    MessageModule,
+    NgxMaskModule.forRoot()
   ],
   exports: [
     IngredienteRecetasComponent,

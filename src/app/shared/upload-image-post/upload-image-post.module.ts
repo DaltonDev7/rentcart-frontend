@@ -5,7 +5,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import {CarouselModule} from 'primeng/carousel';
-
+import {FileUploadModule} from 'primeng/fileupload';
 @NgModule({
   declarations: [
     UploadImagePostComponent
@@ -16,7 +16,8 @@ import {CarouselModule} from 'primeng/carousel';
     ImageCropperModule,
     DialogModule,
     ButtonModule,
-    CarouselModule
+    CarouselModule,
+    FileUploadModule
     
   ],
   exports:[

@@ -2,6 +2,7 @@ import { Action, createReducer, on } from '@ngrx/store';
 import { Rol } from 'src/app/core/models/rol.model';
 import { Usuario } from 'src/app/core/models/usuario.model';
 import * as authAction from './auth.actions';
+import * as authActions from 'src/app/authentication/store/auth.actions';
 
 export interface UserState {
     UserActual: Usuario,
@@ -23,7 +24,7 @@ export const AuthenticationReducer = createReducer(
     initialState,
 
     on(authAction.LoginStart, (state, action) => {
-      
+
         return {
             ...state,
             loading: true
@@ -31,7 +32,7 @@ export const AuthenticationReducer = createReducer(
     }),
 
     on(authAction.LoginSuccess, (state, action) => {
-    
+
         return {
             ...state,
             UserActual: action.payload,
@@ -56,9 +57,18 @@ export const AuthenticationReducer = createReducer(
     }),
 
     on(authAction.AutoLogin, (state, action) => {
-     
+
         return {
             ...state,
+            loading: false,
+            activeRole: null
+        }
+    }),
+
+    on(authAction.Logout, (state, action) => {
+        return {
+            ...state,
+            UserActual: null,
             loading: false,
             activeRole: null
         }

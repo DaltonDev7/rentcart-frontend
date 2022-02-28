@@ -20,11 +20,12 @@ import { TokenInterceptorService } from './core/interceptors/token-interceptor.s
 import { ReactiveFormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileSelectionComponent
+    ProfileSelectionComponent,
   ],
   imports: [
     BrowserModule,

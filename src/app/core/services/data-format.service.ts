@@ -35,14 +35,15 @@ export class DataFormatService {
     }
   }
 
-  getImagenesPostFormat() {
+  getImagenesPostFormat(IdPost: number) {
     let imagenes: string[] = this.imagenesPortadaPostService.getImagenesPost()
     let formData = new FormData();
 
     imagenes.forEach((item) => {
-      formData.append('file',  item)
+      formData.append('file', item)
     })
 
+    formData.append('IdPost', IdPost.toString())
     return formData
   }
 

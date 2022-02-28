@@ -87,6 +87,7 @@ export class UploadImagePostComponent implements OnInit {
 
   eliminarFoto(index: number) {
     this.filesToUpload.splice(index, 1)
+    this.filesToShow.splice(index, 1)
     this.imagenesPost.emit(this.filesToUpload)
   }
 
