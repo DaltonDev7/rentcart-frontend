@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../../../../core/services/usuario.service';
-import { Usuario } from '../../../../core/models/usuario.model';
 import { Store } from '@ngrx/store';
 import * as fromApp from 'src/app/state/app.state';
-import { getImgUsuarioRuta } from 'src/app/authentication/store';
-import { getCurrentUser } from '../../../../authentication/store/index';
+import { getCurrentUser, getImgUsuarioRuta } from 'src/app/authentication/store';
+import { Usuario } from 'src/app/core/models/usuario.model';
+import { UsuarioService } from 'src/app/core/services/usuario.service';
+import { PostService } from '../../profile/usuario/services/post.service';
+
 
 @Component({
   selector: 'app-miperfil',
@@ -14,16 +15,23 @@ import { getCurrentUser } from '../../../../authentication/store/index';
 export class MiperfilComponent implements OnInit {
 
   usuario: Usuario
+  postRecetas:any[]=[]
 
   constructor(
     private store: Store<fromApp.State>,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private postService : PostService
   ) { }
 
   ngOnInit(): void {
 
     this.store.select((getCurrentUser)).subscribe((usuario: Usuario) => {
       this.usuario = usuario
+    })
+
+    this.postService.getPostByIdUser(29).subscribe((data)=>{
+      console.log(data);
+      this.postRecetas = data
     })
 
 

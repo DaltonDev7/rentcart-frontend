@@ -16,19 +16,16 @@
     (cropperReady)="cropperReady($event)"
     (loadImageFailed)="loadImageFailed()" 
     [aspectRatio]="1/ 1" 
-   
-   
+
     [cropperMinWidth]="800"
     [cropperMinHeight]="800"
-   
+    [cropperMaxWidth]="800"
     [cropperMaxHeight]="800"
-    [cropperMaxHeight]="800"
-   
+
     [onlyScaleDown]="false"
     [maintainAspectRatio]="true"
     [imageChangedEvent]="imageChangedEvent">
    </image-cropper>
-    
 
     <ng-template pTemplate="footer">
         <button pButton pRipple type="button"  icon="pi pi-check" (click)="configImageTerminado(true)" label="Listo" class="p-button-success"></button>

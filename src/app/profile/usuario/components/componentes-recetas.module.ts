@@ -7,7 +7,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AddPostComponent } from './add-post/add-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ImagenesPostComponent } from './imagenes-post/imagenes-post.component';
+import { ImagenPerfilModule } from 'src/app/shared/show-imagen-perfil/imagen-perfil.module';
+import { UploadImageModule } from 'src/app/shared/upload-image/upload-image.module';
+import { UploadImagePostModule } from 'src/app/shared/upload-image-post/upload-image-post.module';
+import {BadgeModule} from 'primeng/badge';
 
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -15,17 +21,24 @@ import { NgSelectModule } from '@ng-select/ng-select';
     IngredienteRecetasComponent,
     PasosRecetasComponent,
     NutricionRecetasComponent,
-    AddPostComponent
+    AddPostComponent,
+    ImagenesPostComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ImagenPerfilModule,
+    UploadImageModule,
+    UploadImagePostModule,
+    BadgeModule,
+    NgxMaskModule.forRoot()
   ],
   exports: [
     IngredienteRecetasComponent,
     PasosRecetasComponent,
     NutricionRecetasComponent,
-    AddPostComponent
+    AddPostComponent,
+    ImagenesPostComponent
   ]
 })
 export class ComponentesRecetasModule { }

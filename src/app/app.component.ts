@@ -18,10 +18,6 @@ export class AppComponent {
 
     this.store.dispatch(authActions.AutoLogin())
 
-
-
-    console.log('mensaje desde ts app app  food');
-
     this.router.events.subscribe((event) => {
       switch (true) {
         case event instanceof NavigationStart: {

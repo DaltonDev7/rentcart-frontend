@@ -78,9 +78,7 @@ export class AuthEffects {
                         }
                     }
                     else {
-                        if (data.iniciarSesionFirstTime) {
-                            this.router.navigate([this.rediretService.redirect(data.payload.Roles[0])]);
-                        }
+                        this.router.navigate([this.rediretService.redirect(data.payload.Roles[0])]);
                     }
                 }
                 else {
@@ -131,10 +129,9 @@ export class AuthEffects {
                 let token = localStorage.getItem(tokenName);
                 let tokenExpired = this.jwtHelper.isTokenExpired(token);
 
-                console.log('entro  aqui  auto login');
-
+                
                 if (!token) {
-
+                    
                     this.router.navigate(['/login']);
                     return of(authActions.AutoLoginError({ error: "No existe ningún usuario autenticado" }));
                 }
@@ -154,6 +151,7 @@ export class AuthEffects {
                         }))
 
                 } else {
+                    
                     return of(authActions.AutoLoginError({ error: "La sesión ha expirado, por favor inicie sesión" }));
                 }
             })
@@ -162,7 +160,14 @@ export class AuthEffects {
     )
 
 
-
-
+    logout$ = createEffect(
+        () => this.action$.pipe(
+            ofType(authActions.Logout),
+            tap(() => {
+                this.SigninService.logout()
+            })
+        ),
+        { dispatch: false }
+    )
 
 }

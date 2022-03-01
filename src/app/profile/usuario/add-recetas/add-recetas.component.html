@@ -8,18 +8,57 @@
         </div>
         <div class="addpost-formulario">
 
-                <app-add-post [postForm]="addRecetasManagerServices.getPostForm()"> </app-add-post>
+            <ng-container *ngIf="showPostForm">
 
-                <app-pasos-recetas [pasosRecetaForm]="addRecetasManagerServices.getPasosRecetasForm()"> </app-pasos-recetas>
+                <app-add-post [postForm]="formService.getPostForm()"> </app-add-post>
 
-                <app-ingrediente-recetas [ingredienteRecetasForm]="addRecetasManagerServices.getIngredientesReecetasForm()"> </app-ingrediente-recetas>
-
-                <app-nutricion-recetas [nutricionForm]="addRecetasManagerServices.getNutricionRecetaForm()" > </app-nutricion-recetas>
+                <app-ingrediente-recetas [ingredienteRecetasForm]="formService.getIngredientesReecetasForm()"> </app-ingrediente-recetas>
+                
+                <app-pasos-recetas [pasosRecetaForm]="formService.getPasosRecetasForm()"> </app-pasos-recetas>
+                
+                <app-nutricion-recetas [nutricionForm]="formService.getNutricionRecetaForm()" > </app-nutricion-recetas>
 
                 <div>
                     <button pButton pRipple type="button" label="Guargar" class="p-button-success" (click)="onSave()"></button>
                 </div>
 
+            </ng-container>
+
+            <div  *ngIf="!showPostForm">
+                <app-imagenes-post> </app-imagenes-post>
+
+            </div>
+
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+<!-- modal campos requeridos -->
+<p-dialog header="Campos requeridos" [(visible)]="displayModalRequeridos" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <p class="p-m-0 post-required">Favor, complete los campos requeridos restantes</p>
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" (click)="cerrarModalRequeridos()" label="De acuerdo!" class="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>
+
+
+<!-- modal Post Guardado-->
+<p-dialog header="Receta guardada" [(visible)]="displayModalSavedPost" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <p class="p-m-0 post-saved">Tu nueva receta se ha publicado correctamente! <i class="fa-solid fa-face-smile-wink  img-happy"></i> 
+    ¿Desea agregar imagenes?
+    </p>
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-times" (click)="saveImagenes(false)" label="Cancelar" class="p-button-text"></p-button>
+            <p-button icon="pi pi-check" (click)="saveImagenes(true)" label="De acuerdo!" class="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>

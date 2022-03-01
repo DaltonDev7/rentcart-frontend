@@ -1,0 +1,64 @@
+
+<!-- BOTON ELEGIR IMAGEN -->
+<div class="d-flex justify-content-center"   *ngIf="filesToUpload.length < 5">
+        <input type="file" id="file" style="display: none;" (change)="fileChangeEvent($event)" >
+        <label class="imagen-personalizado" for="file">+</label>
+</div>
+
+
+
+<!-- MOSTRAR MODAL -->
+<p-dialog header="Imagen" [(visible)]="displayBasic" [style]="{width: '50vw'}" [baseZIndex]="10000">
+   
+    <image-cropper 
+    (imageLoaded)="imageLoaded($event)" 
+    (imageCropped)="imageCropped($event)" 
+    (cropperReady)="cropperReady($event)"
+    (loadImageFailed)="loadImageFailed()" 
+    [aspectRatio]="1/ 1" 
+
+    [cropperMinWidth]="1200"
+    [cropperMinHeight]="630"
+    [cropperMaxWidth]="1200"
+    [cropperMaxHeight]="630"
+
+    [onlyScaleDown]="false"
+    [maintainAspectRatio]="true"
+    [imageChangedEvent]="imageChangedEvent">
+   </image-cropper>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple type="button"  icon="pi pi-check" (click)="configImageTerminado(true)" label="Listo" class="p-button-success"></button>
+        <button pButton pRipple type="button"  icon="pi pi-times"  (click)="configImageTerminado(false)"  label="Cancelar" class="p-button-danger"></button>
+    </ng-template>
+
+</p-dialog>
+
+
+<!-- MOSTRAR IMAGEN CORTADA -->
+<!-- <div class="d-flex justify-content-center content-imagen">
+    <div *ngFor="let img of filesToUpload; index as i"  >
+    </div>
+</div> -->
+
+
+<table class="table" >
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Imagen</th>
+        <th scope="col">Accion</th>
+      </tr>
+    </thead>
+    <tbody  *ngFor="let img of filesToShow; index as i;last as isLast" >
+      <tr>
+        <td>
+            <img [src]="img" alt="" style="width: 150px;">
+        </td>
+        <td>
+            <button pButton pRipple type="button" icon="pi pi-times" 
+            (click)="eliminarFoto(i)" 
+            class="p-button-rounded p-button-danger p-button-raised p-button-text"></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

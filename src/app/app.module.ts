@@ -18,19 +18,27 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { tokenGetter } from './core/config/jwt-congif';
 import { TokenInterceptorService } from './core/interceptors/token-interceptor.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileSelectionComponent
+    ProfileSelectionComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MenuModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-left',
+      timeOut: 7000,
+      disableTimeOut: false,
+      closeButton: true,
+    }),
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducer),

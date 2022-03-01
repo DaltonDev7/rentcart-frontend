@@ -1,0 +1,26 @@
+.imagen-personalizado {
+
+
+    margin-top: 14px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #106BA0;
+    display: inline-block;
+    transition: all .5s;
+    cursor: pointer;
+    padding: 15px 40px !important;
+    text-transform: uppercase;
+    width: fit-content;
+    text-align: center;
+}
+
+.content-imagen{
+
+  display: flex;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  overflow-y: scroll;
+}
+
