@@ -29,6 +29,17 @@
 </div>
 
 
+<div *ngFor="let item of postRecetas">
+
+    <img [src]="item.UsuarioImagen" alt="" style="width: 150px;">
+    <div> {{item.Titulo}}</div>
+
+    <div>
+        <img [src]="item.ImagenPost" alt="" style="width: 350px;">
+    </div>
+
+</div>
+
 <!-- <h5>Basic</h5>
 <p-button label="Submit"></p-button>
 <p-button label="Link" styleClass="p-button-link"></p-button>

@@ -1,23 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormArray, FormControl } from '@angular/forms';
-import { ComboxboxService } from '../../../../core/services/comboxbox.service';
-import { Combox } from '../../../../core/interfaces/combox';
-import { FormService } from '../../../../core/services/form.service';
+import { FormGroup } from '@angular/forms';
 import { ImagenesPortadaPostService } from 'src/app/core/services/imagenes-portada-post.service';
-import { AddRecetasManagerService } from '../../add-recetas/add-recetas-manager.service';
 import { DataFormatService } from '../../../../core/services/data-format.service';
 import { Store } from '@ngrx/store';
 import * as postRecetasReducer from 'src/app/profile/usuario/store/post-recetas.reducer';
 import { getIdPostReceta } from '../../store';
 import { PostService } from '../../services/post.service';
-import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-imagenes-post',
   templateUrl: './imagenes-post.component.html',
   styleUrls: ['./imagenes-post.component.scss'],
-  providers: [MessageService]
 })
 export class ImagenesPostComponent implements OnInit {
 
@@ -25,12 +20,12 @@ export class ImagenesPostComponent implements OnInit {
   files: string[] = []
 
   constructor(
-    private router :Router,
+    private router: Router,
     private storePostReceta: Store<postRecetasReducer.PostRecetasState>,
     private dataFormatService: DataFormatService,
-    private addRecetasManagerServices: AddRecetasManagerService,
     private imagenesPortadaService: ImagenesPortadaPostService,
-    private postService: PostService
+    private postService: PostService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -48,7 +43,7 @@ export class ImagenesPostComponent implements OnInit {
 
       let imagenesPost = this.dataFormatService.getImagenesPostFormat(idPost)
       this.postService.saveImagenesPost(imagenesPost).subscribe(() => {
-        console.log('imagenes guardadas');
+        this.toastr.success('Imagenes guardadas!')
         this.router.navigate(['/me'])
       })
     })

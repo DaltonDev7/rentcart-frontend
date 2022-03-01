@@ -24,5 +24,9 @@ export class PostService {
     return this.http.post<any>(`${environment.foodApp}/postreceta/SaveImagenesPost`, payload, this.attachementHeaders)
   }
 
+  getPostByIdUser(IdUser:number){
+    return this.http.get<any>(`${environment.foodApp}/postreceta/GetPostByUser/${IdUser}`)
+  }
+
 
 }
