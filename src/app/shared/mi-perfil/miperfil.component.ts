@@ -5,6 +5,7 @@ import { getCurrentUser, getImgUsuarioRuta } from 'src/app/authentication/store'
 import { Usuario } from 'src/app/core/models/usuario.model';
 import { UsuarioService } from 'src/app/core/services/usuario.service';
 import { PostService } from '../../profile/usuario/services/post.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class MiperfilComponent implements OnInit {
   constructor(
     private store: Store<fromApp.State>,
     private usuarioService: UsuarioService,
-    private postService : PostService
+    private postService : PostService,
+    private activedRouted :  ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -29,11 +31,10 @@ export class MiperfilComponent implements OnInit {
       this.usuario = usuario
     })
 
-    this.postService.getPostByIdUser(29).subscribe((data)=>{
+    this.activedRouted.data.subscribe((data:any) => {
       console.log(data);
-      this.postRecetas = data
+      this.postRecetas = data.postsUsuarios
     })
-
 
   }
 

@@ -4,19 +4,16 @@
             <div class="profile-image">
                 <div>
                     <imagen-perfil> </imagen-perfil>
-                    <!-- <img src="assets/images/profile-default/boy.jpg" alt=""> -->
                 </div>
             </div>
             <div class="profile-info">
                 <div class="profile-edit">
                     <div class="profile-title">
-                        <h3>{{usuario?.Nombres}}  {{usuario?.Apellidos}}</h3>
+                        <h3>{{usuario?.Nombres}} {{usuario?.Apellidos}}</h3>
                     </div>
                     <div class="button-editar">
-                        <button pButton pRipple type="button" label="Editar perfil" class="p-button-raised p-button-info p-button-text"></button>
-                        <!-- <button pButton pRipple styleClass="p-button-sm" type="button" label="Editar perfil" class="p-button-raised p-button-info"></button> -->
-                        <!-- <button pButton type="button" label="Editar Perfil" class="p-button-raised p-button-rounded"></button> -->
-                        <!-- <button pButton type="button" label="Editar Perfil" class="p-button-outlined"></button> -->
+                        <button pButton pRipple type="button" label="Editar perfil"
+                            class="p-button-raised p-button-info p-button-text"></button>
                     </div>
                 </div>
                 <div class="profile-username">
@@ -29,14 +26,85 @@
 </div>
 
 
+<div class="container">
+
+    <div class="row">
+        <ng-container *ngFor="let item of postRecetas">
+
+
+            <p-card class="col-lg-4 col-md-6 col-sm-12 mb-5 post-card">
+                <div class="post-hearder mb-3">
+                    <div class="img-user">
+                        <img [src]="item.UsuarioImagen" alt="">
+                    </div>
+                    <div class="post-user-info">
+                        <h6>{{item.UsuarioNombre}} {{item.UsuarioApellidos}}</h6>
+                        <p>{{item.FechaCreacion | date:'medium' }}</p>
+                    </div>
+                </div>
+
+                <div class="post-body mb-2">
+                    <img [src]="item.ImagenPost" alt="">
+                </div>
+                <div class="post-footer">
+                     <h6> {{item.Titulo}} </h6>
+                 
+                    <div [ngSwitch]="item.IdNivelDificultad">
+
+                        <p-badge 
+                           *ngSwitchCase="1"
+                           value="{{item.NivelDiificultad}}"
+                           size="small" 
+                           severity="success"> {{item.NivelDiificultad}}
+                         </p-badge>
+                        <p-badge 
+                           *ngSwitchCase="2"
+                           value="{{item.NivelDiificultad}}"
+                           size="small" 
+                           severity="info"> {{item.NivelDiificultad}}
+                         </p-badge>
+                        <p-badge 
+                           *ngSwitchCase="3"
+                           value="{{item.NivelDiificultad}}"
+                           size="small" 
+                           severity="danger"> {{item.NivelDiificultad}}
+                         </p-badge>
+                        <p-badge 
+                           *ngSwitchCase="4"
+                           value="{{item.NivelDiificultad}}"
+                           size="small" 
+                           severity="warning"> {{item.NivelDiificultad}}
+                         </p-badge>
+
+                    </div>
+
+                    <!-- <span *ngIf="item.IdNivelDificultad == 1" class="badge badge-success">{{item.NivelDiificultad}}</span> -->
+              
+                  
+                 
+                  
+                    <!-- <span *ngIf="item.IdNivelDificultad == 3" class="badge badge-danger">{{item.NivelDiificultad}}</span>
+                    <span *ngIf="item.IdNivelDificultad == 4" class="badge badge-dark">{{item.NivelDiificultad}}</span> -->
+
+                </div>
+
+
+            </p-card>
+
+        </ng-container>
+    </div>
+
+</div>
+
+
 <div *ngFor="let item of postRecetas">
 
-    <img [src]="item.UsuarioImagen" alt="" style="width: 150px;">
+    <!-- <img [src]="item.UsuarioImagen" alt="" style="width: 150px;">
     <div> {{item.Titulo}}</div>
 
     <div>
         <img [src]="item.ImagenPost" alt="" style="width: 350px;">
-    </div>
+    </div> -->
 
 </div>
 
