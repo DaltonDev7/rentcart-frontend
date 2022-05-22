@@ -5,3 +5,105 @@
 
 //ngselect
 @import "~@ng-select/ng-select/themes/default.theme.css";
+
+
+//inputs css
+.baseInput{
+    width: 100%;
+    background:#eff1f4;
+    border:none;
+    border-radius:3px;
+    box-shadow:none;
+    outline:none;
+    color:inherit;
+    text-indent:9px;
+    height:45px;
+    margin-right:10px;
+    margin-bottom: 10px;
+    min-width:250px;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.btn-add{
+    background: #006992;
+    border-color: #006992;
+    color: #fff;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+    -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+ 
+}
+
+
+/* You can add global styles to this file, and also import other style files */
+
+
+
+
+
+
+
+
+
+body{
+    background-color: #F4F6F9 !important;
+}
+
+//sombra
+.sombra{
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+//inputs
+.form-control:focus{
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0);
+}
+
+
+.p-inputtext{
+    padding-top: 6px;
+    padding-bottom: 6px;
+
+    padding-right:12px;
+    padding-left: 12px;
+}
+
+
+input.ng-invalid {
+    border: 1px solid #f00 !important;
+}
+ng-select.ng-invalid .ng-select-container {
+    border-color: #dc3545 !important;
+}
+
+//margin
+.margin-rigth4{
+    margin-right: 4px;
+}
+
+
+//boton base
+.btn-base{
+    width: 100%;
+   // font-family: 'ubuntu-bold';
+    font-weight: 600;
+    background: #5854E5;
+    border: none;
+    color: #fff;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 12px;
+}

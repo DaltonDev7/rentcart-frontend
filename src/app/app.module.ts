@@ -4,6 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Home/home.component';
+import { SidebarModule } from './shared/sidebar/sidebar.module';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { HomeComponent } from './Home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

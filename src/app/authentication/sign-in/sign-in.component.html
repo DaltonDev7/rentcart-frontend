@@ -1,1 +1,29 @@
-<p>sign-in works!</p>
+<div class="section-main">
+    <div class="section-image">
+    </div>
+    <div class="section-login">
+        
+        <div class="section-titulo">
+            <h4 class="iniciar-sesion">Iniciar Sesion</h4>
+        </div>
+        <div class="section-formulario">
+            <form>
+                <div class="form-group mb-3">
+                    <div for="">Usuario</div>
+                    <input type="email" class="baseInput negate-invalid">
+                </div>
+                <div class="form-group mb-3">
+                    <div for="">Contraseña</div>
+                    <input type="password" class="baseInput negate-invalid">
+                </div>
+            </form>
+            <div class="section-button">
+                <button 
+                (click)="login()"
+                class="btn btn-base">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
