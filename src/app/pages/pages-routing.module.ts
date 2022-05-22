@@ -5,24 +5,32 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     loadChildren: () => import("./rentaDevolucion/renta.module").then(m => m.RentaModule)
   },
   {
-    path:'clientes',
+    path: 'clientes',
     loadChildren: () => import("./cliente/cliente.module").then(m => m.ClienteModule)
   },
   {
-    path:'empleados',
+    path: 'empleados',
     loadChildren: () => import("./empleado/empleado.module").then(m => m.EmpleadoModule)
   },
   {
-    path:'inspeccion',
+    path: 'inspeccion',
     loadChildren: () => import("./inspeccion/inspeccion.module").then(m => m.InspeccionModule)
   },
   {
-    path:'tipoPersona',
+    path: 'tipoPersona',
     loadChildren: () => import("./tipoPersona/tipo-persona.module").then(m => m.TipoPersonaModule)
+  },
+  {
+    path: 'marca',
+    loadChildren: () => import("./marca/marca.module").then(m => m.MarcaModule)
+  },
+  {
+    path: 'modelo',
+    loadChildren: () => import("./modelo/modelo.module").then(m => m.ModeloModule)
   }
 ]
 
@@ -33,7 +41,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  exports:[
+  exports: [
     RouterModule
   ]
 })
