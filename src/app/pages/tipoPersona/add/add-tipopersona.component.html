@@ -1,0 +1,23 @@
+<h3>Crear Tipo Persona</h3>
+
+<div class="container">
+
+    <form [formGroup]="tipoPersonaForm">
+        <div class="row">
+
+            <div class="col-4">
+                <label for="">Descripcion</label>
+                <input type="text" class="baseInput" formControlName="Descripcion">
+            </div>
+
+            <div class="col-4">
+                <label for="">Estado</label>
+                <ng-select [items]="estadoCombox" placeholder="Seleccione"   bindLabel="text" formControlName="Estado"
+                bindValue="id">
+                </ng-select>
+            </div>
+
+        </div>
+    </form>
+    <button [disabled]="!tipoPersonaForm.valid" class="btn btn-save" (click)="save()">Guardar</button>
+</div>

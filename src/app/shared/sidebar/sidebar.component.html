@@ -16,7 +16,7 @@
             </div>
         </li>
         <li>
-            <div  class="nav-link text-white pointer">
+            <div  class="nav-link text-white pointer" [routerLink]="['/renta/inspeccion']">
                 <svg class="bi pe-none me-2" width="16" height="16">
                     <use xlink:href="#speedometer2" />
                 </svg>
@@ -40,7 +40,7 @@
             </div>
         </li>
         <li>
-            <div  class="nav-link text-white pointer">
+            <div  class="nav-link text-white pointer" [routerLink]="['/renta/tipoPersona']">
                 <svg class="bi pe-none me-2" width="16" height="16">
                     <use xlink:href="#people-circle" />
                 </svg>
@@ -69,6 +69,22 @@
                     <use xlink:href="#people-circle" />
                 </svg>
                 Tipo Vehiculo
+            </div>
+        </li>
+        <li>
+            <div  class="nav-link text-white pointer" [routerLink]="['/renta/empleados']">
+                <svg class="bi pe-none me-2" width="16" height="16">
+                    <use xlink:href="#people-circle" />
+                </svg>
+                Empleados
+            </div>
+        </li>
+        <li>
+            <div  class="nav-link text-white pointer" [routerLink]="['/renta/clientes']">
+                <svg class="bi pe-none me-2" width="16" height="16">
+                    <use xlink:href="#people-circle" />
+                </svg>
+                Clientes
             </div>
         </li>
     </ul>

@@ -4,6 +4,7 @@ import { RentaRoutingModule } from './renta-routing.module';
 import { RentaDevolucionComponent } from './renta-devolucion.component';
 import { EditRentaComponent } from './edit/edit-renta.component';
 import { AddRentaComponent } from './add/add-renta.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -15,7 +16,8 @@ import { AddRentaComponent } from './add/add-renta.component';
   ],
   imports: [
     CommonModule,
-    RentaRoutingModule
+    RentaRoutingModule,
+    SharedModule
   ]
 })
 export class RentaModule { }

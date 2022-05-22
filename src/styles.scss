@@ -23,9 +23,27 @@
     min-width:250px;
 }
 
+.btt{
+    
+}
+
 .pointer{
     cursor: pointer;
 }
+
+//boton base
+.btn-base{
+    width: 100%;
+   // font-family: 'ubuntu-bold';
+    font-weight: 600;
+    background: #5854E5;
+    border: none;
+    color: #fff;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 12px;
+}
+
 
 .btn-add{
     background: #006992;
@@ -40,22 +58,27 @@
     -webkit-box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
     -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
     box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
- 
 }
 
-
-/* You can add global styles to this file, and also import other style files */
-
-
-
-
-
-
+.btn-save{
+    background: #25a18e;
+    border-color: #25a18e;
+    color: #fff;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+    -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+}
 
 
 
 body{
-    background-color: #F4F6F9 !important;
+ //   background-color: #F4F6F9 !important;
 }
 
 //sombra
@@ -88,6 +111,9 @@ input.ng-invalid {
 ng-select.ng-invalid .ng-select-container {
     border-color: #dc3545 !important;
 }
+ng-select{
+    background:#eff1f4 !important;
+}
 
 //margin
 .margin-rigth4{
@@ -95,15 +121,134 @@ ng-select.ng-invalid .ng-select-container {
 }
 
 
-//boton base
-.btn-base{
-    width: 100%;
-   // font-family: 'ubuntu-bold';
-    font-weight: 600;
-    background: #5854E5;
-    border: none;
-    color: #fff;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    border-radius: 12px;
+
+
+
+
+//css talbes
+.table-responsive {
+    margin: 30px 0;
 }
+.table-wrapper {
+    min-width: 1000px;
+    background: #fff;
+    padding: 20px 25px;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.table-title {
+    padding-bottom: 15px;
+    background: #299be4;
+    color: #fff;
+    padding: 16px 30px;
+    margin: -20px -25px 10px;
+    border-radius: 3px 3px 0 0;
+}
+.table-title h2 {
+    margin: 5px 0 0;
+    font-size: 24px;
+}
+.table-title .btn {
+    color: #566787;
+    float: right;
+    font-size: 13px;
+    background: #fff;
+    border: none;
+    min-width: 50px;
+    border-radius: 2px;
+    border: none;
+    outline: none !important;
+    margin-left: 10px;
+}
+.table-title .btn:hover, .table-title .btn:focus {
+    color: #566787;
+    background: #f2f2f2;
+}
+.table-title .btn i {
+    float: left;
+    font-size: 21px;
+    margin-right: 5px;
+}
+.table-title .btn span {
+    float: left;
+    margin-top: 2px;
+}
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+table.table tr th:first-child {
+    width: 60px;
+}
+table.table tr th:last-child {
+    width: 100px;
+}
+table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fcfcfc;
+}
+table.table-striped.table-hover tbody tr:hover {
+    background: #f5f5f5;
+}
+table.table th i {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+}	
+table.table td:last-child i {
+    opacity: 0.9;
+    font-size: 22px;
+    margin: 0 5px;
+}
+table.table td a {
+    font-weight: bold;
+    color: #566787;
+    display: inline-block;
+    text-decoration: none;
+}
+table.table td a:hover {
+    color: #2196F3;
+}
+table.table td a.settings {
+    color: #2196F3;
+}
+table.table td a.delete {
+    color: #F44336;
+}
+table.table td i {
+    font-size: 19px;
+}
+table.table .avatar {
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.status {
+    font-size: 30px;
+    margin: 2px 2px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 10px;
+}
+.text-success {
+    color: #10c469;
+}
+.text-info {
+    color: #62c9e8;
+}
+.text-warning {
+    color: #FFC107;
+}
+.text-danger {
+    color: #ff5b5b;
+}
+.pagination {
+    float: right;
+    margin: 0 0 5px;
+}
+
+.section-add-buscar{
+    display: flex;
+    justify-content: space-between;
+}
+

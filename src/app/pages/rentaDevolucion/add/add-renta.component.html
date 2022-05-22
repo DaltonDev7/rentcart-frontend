@@ -1,10 +1,45 @@
-
-
-
 <h3>Crear Renta</h3>
 
 <div class="container">
+
     <form>
-        
+        <div class="row">
+            <div class="form-group mb-3 col-4">
+                <label for="">Cliente</label>
+                <ng-select [items]="[]">
+                </ng-select>
+            </div>
+            <div class="col-4 mb-3 ">
+                <label for="">Vehiculo</label>
+                <ng-select [items]="[]">
+                </ng-select>
+            </div>
+            <div class="col-4 mb-3 ">
+                <label for="">Fecha Renta</label>
+                <input type="date" class="form-control">
+            </div>
+            <div class="col-4 mb-3 ">
+                <label for="">Fecha Devolucion</label>
+                <input type="date" class="form-control">
+            </div>
+            <div class="col-4 mb-3 ">
+                <label for="">Empleado</label>
+                <ng-select [items]="[]">
+                </ng-select>
+            </div>
+            <div class="col-4">
+                <label for="">Monto por Dia</label>
+                <input type="number" class="form-control">
+            </div>
+            <div class="col-4">
+                <label for="">Cantidad por Dia</label>
+                <input type="number" class="form-control">
+            </div>
+            <div class="col-6">
+                <label for="">Comentario</label>
+                <textarea name="" id="" cols="30" rows="10" class="baseInput config-textarea"></textarea>
+            </div>
+        </div>
     </form>
+    <button class="btn btn-save">Guardar</button>
 </div>
