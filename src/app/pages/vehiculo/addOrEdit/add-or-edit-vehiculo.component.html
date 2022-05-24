@@ -1,0 +1,53 @@
+<h3>{{title}} Vehiculo</h3>
+
+<div class="container">
+
+    <form [formGroup]="vehiculoForm">
+        <div class="row">
+
+            <div class="col-4">
+                <label for="">Descripcion</label>
+                <input type="text" class="baseInput" formControlName="Descripcion">
+            </div>
+            <div class="col-4">
+                <label for="">No Chasis</label>
+                <input type="text" class="baseInput" formControlName="NoChasis">
+            </div>
+            <div class="col-4">
+                <label for="">No Motor</label>
+                <input type="text" class="baseInput" formControlName="NoMotor">
+            </div>
+            <div class="col-4">
+                <label for="">No Placa</label>
+                <input type="text" class="baseInput" formControlName="NoPlaca">
+            </div>
+            <div class="col-4">
+                <label for="">TipoVehiculo</label>
+                <ng-select [items]="tipoVehiculoCombox" placeholder="Seleccione"   bindLabel="text" formControlName="IdTipoVehiculo"
+                bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4">
+                <label for="">Tipo Combustible</label>
+                <ng-select [items]="tipoCombustibleCombox" placeholder="Seleccione"   bindLabel="text" formControlName="IdTipoCombustible"
+                bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4">
+                <label for="">Modelo</label>
+                <ng-select [items]="modeloCombox" placeholder="Seleccione"   bindLabel="text" formControlName="IdModelo"
+                bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4">
+                <label for="">Estado</label>
+                <ng-select [items]="estadoCombox" placeholder="Seleccione"   bindLabel="text" formControlName="Estado"
+                bindValue="id">
+                </ng-select>
+            </div>
+
+        </div>
+    </form>
+    <button [disabled]="!vehiculoForm.valid" class="btn btn-save" (click)="save()" *ngIf="validateVista">Guardar</button>
+    <button [disabled]="!vehiculoForm.valid" class="btn btn-save" (click)="update()" *ngIf="!validateVista">Editar</button>
+</div>

@@ -1,8 +1,8 @@
-<h3>{{title}} Cliente</h3>
+<h3>{{title}} Empleado</h3>
 
 <div class="container">
 
-    <form [formGroup]="clienteForm">
+    <form [formGroup]="empleadoForm">
         <div class="row">
 
             <div class="col-4">
@@ -18,18 +18,16 @@
                 <input type="text" class="baseInput" formControlName="Apellidos">
             </div>
             <div class="col-4">
-                <label for="">NoTarjetaCR</label>
-                <input type="text" class="baseInput" formControlName="NoTarjetaCR" mask="0000-0000-0000-0000">
+                <label for="">Tanda Labor</label>
+                <input type="text" class="baseInput" formControlName="TandaLabor">
             </div>
             <div class="col-4">
-                <label for="">Limite Credito</label>
-                <input type="text" class="baseInput" formControlName="LimiteCredito"  mask="separator.2">
+                <label for="">Porciento Comision</label>
+                <input type="text" class="baseInput" formControlName="PorcientoComision" suffix="%"  mask="separator.2">
             </div>
             <div class="col-4">
-                <label for="">Tipo Persona</label>
-                <ng-select [items]="tipoPersonaCombox" placeholder="Seleccione"   bindLabel="text" formControlName="IdTipoPersona"
-                  bindValue="id">
-                </ng-select>
+                <label for="">FechaIngreso</label>
+                <input type="date" class="form-control">
             </div>
 
             <div class="col-4">
@@ -41,6 +39,6 @@
 
         </div>
     </form>
-    <button [disabled]="!clienteForm.valid" class="btn btn-save" (click)="save()" *ngIf="validateVista">Guardar</button>
-    <button [disabled]="!clienteForm.valid" class="btn btn-save" (click)="update()" *ngIf="!validateVista">Editar</button>
+    <button [disabled]="!empleadoForm.valid" class="btn btn-save" (click)="save()" *ngIf="validateVista">Guardar</button>
+    <button [disabled]="!empleadoForm.valid" class="btn btn-save" (click)="update()" *ngIf="!validateVista">Editar</button>
 </div>

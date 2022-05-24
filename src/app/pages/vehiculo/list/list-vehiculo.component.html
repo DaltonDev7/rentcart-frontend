@@ -11,23 +11,26 @@
     </div>
 </div>
 
-<h2>Modelos</h2>
+<h2>Vehiculos</h2>
 
 
 <table class="table">
     <thead class="thead-dark table-dark">
         <tr>
-            <th>Marca</th>
             <th>Modelo</th>
-            <th>Estado</th>
-            <th>Acciones</th>
+            <th>Tipo Vehiculo</th>
+            <th>Tipo Combustible</th>
+            <th>No Chasis</th>
+            <th>No Motor</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of modelos">
-            <td>{{item.MarcaDescripcion}}</td>
-            <td>{{item.Descripcion}}</td>
-            <td>{{item.Estado == 1 ? 'Activo' : 'Inactivo'}}</td>
+        <tr *ngFor="let item of vehiculos">
+            <td>{{item.Modelo}}</td>
+            <td>{{item.TipoVehiculo}}</td>
+            <td>{{item.TipoCombustible}}</td>
+            <td>{{item.NoChasis}}</td>
+            <td>{{item.NoMotor}}</td>
             <td>
                 <div>
                     <button class="btn btn-danger">Eliminar</button>

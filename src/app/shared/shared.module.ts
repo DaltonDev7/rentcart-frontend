@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 @NgModule({
   declarations: [],
@@ -12,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports:[
     NgSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule
   ]
 })
 export class SharedModule { }

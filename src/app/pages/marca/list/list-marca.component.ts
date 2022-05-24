@@ -28,8 +28,6 @@ export class ListMarcaComponent implements OnInit {
   }
 
   update(idMarca?: number) {
-    console.log(idMarca);
-    
     this.router.navigate(['/renta/marca/addOrEdit'], { relativeTo: this.activedRouted, state: {  idMarca } })
   }
 

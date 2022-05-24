@@ -1,1 +1,32 @@
-<p>add-or-updatemodelo works!</p>
+<h3>{{title}} Modelo</h3>
+
+<div class="container">
+
+    <form [formGroup]="modeloForm">
+        <div class="row">
+            
+            <div class="col-4">
+                <label for="">Marcas</label>
+                <ng-select [items]="marcaCombox" placeholder="Seleccione"   bindLabel="text" formControlName="IdMarca"
+                bindValue="id">
+                </ng-select>
+            </div>
+
+            <div class="col-4">
+                <label for="">Descripcion</label>
+                <input type="text" class="baseInput" formControlName="Descripcion">
+            </div>
+
+
+            <div class="col-4">
+                <label for="">Estado</label>
+                <ng-select [items]="estadoCombox" placeholder="Seleccione"   bindLabel="text" formControlName="Estado"
+                bindValue="id">
+                </ng-select>
+            </div>
+
+        </div>
+    </form>
+    <button [disabled]="!modeloForm.valid" class="btn btn-save" (click)="save()" *ngIf="validateVista">Guardar</button>
+    <button [disabled]="!modeloForm.valid" class="btn btn-save" (click)="update()" *ngIf="!validateVista">Editar</button>
+</div>

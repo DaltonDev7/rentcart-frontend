@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Home/home.component';
 import { SidebarModule } from './shared/sidebar/sidebar.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     SidebarModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

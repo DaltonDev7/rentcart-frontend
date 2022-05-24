@@ -11,21 +11,19 @@
     </div>
 </div>
 
-<h2>Modelos</h2>
+<h2>Tipo Vehiculo</h2>
 
 
 <table class="table">
     <thead class="thead-dark table-dark">
-        <tr>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-        </tr>
+      <tr>
+        <th>Descripcion</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of modelos">
-            <td>{{item.MarcaDescripcion}}</td>
+        <tr *ngFor="let item of tiposVehiculos">
             <td>{{item.Descripcion}}</td>
             <td>{{item.Estado == 1 ? 'Activo' : 'Inactivo'}}</td>
             <td>
@@ -38,4 +36,5 @@
             </td>
         </tr>
     </tbody>
-</table>
+  </table>
+  

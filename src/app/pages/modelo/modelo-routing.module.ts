@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ListModeloComponent } from './list/list-modelo.component';
 import { AddOrUpdatemodeloComponent } from './addOrUpdate/add-or-updatemodelo.component';
+import { ModeloResolver } from 'src/app/core/resolvers/modelo.resolver';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: ListModeloComponent
+    component: ListModeloComponent,
+    resolve: {
+      modelos : ModeloResolver
+    }
   },
   {
-    path:'addOrUpdate',
+    path: 'addOrUpdate',
     component: AddOrUpdatemodeloComponent
   }
 ]
@@ -23,7 +27,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  exports:[
+  exports: [
     RouterModule
   ]
 })

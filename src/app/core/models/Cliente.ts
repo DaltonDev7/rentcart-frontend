@@ -7,4 +7,5 @@ export interface Cliente extends EntityBase {
     NoTarjetaCR?: string
     LimiteCredito?: number
     IdTipoPersona?: number
+    TipoPersona?: string
 }

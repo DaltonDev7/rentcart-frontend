@@ -4,6 +4,7 @@ import { ListClienteComponent } from './list/list-cliente.component';
 import { EditClienteComponent } from './edit/edit-cliente.component';
 import { AddClienteComponent } from './add/add-cliente.component';
 import { ClienteRoutingModule } from './cliente-routing.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -15,7 +16,8 @@ import { ClienteRoutingModule } from './cliente-routing.module';
   ],
   imports: [
     CommonModule,
-    ClienteRoutingModule
+    ClienteRoutingModule,
+    SharedModule
   ]
 })
 export class ClienteModule { }
