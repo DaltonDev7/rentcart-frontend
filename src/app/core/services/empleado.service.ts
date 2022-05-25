@@ -18,6 +18,7 @@ export class EmpleadoService {
       Cedula: [null, [Validators.required]],
       TandaLabor: [null, [Validators.required]],
       PorcientoComision: [null, [Validators.required]],
+      FechaIngreso: [null, [Validators.required]],
       Estado: [null, [Validators.required]],
     })
   }

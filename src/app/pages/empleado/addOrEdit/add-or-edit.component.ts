@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -40,6 +41,9 @@ export class AddOrEditComponent implements OnInit {
         console.log(empleado);
         this.empleado = empleado
         this.empleadoForm.patchValue(empleado)
+
+        var dateFormat = formatDate(this.empleadoForm.get('FechaIngreso')?.value , 'yyyy-MM-dd', 'en')
+        this.empleadoForm.get('FechaIngreso')?.patchValue(dateFormat)
       })
     }
 
@@ -60,7 +64,8 @@ export class AddOrEditComponent implements OnInit {
   update() {
 
     let data = { ...this.empleado, ...this.empleadoForm.value }
-
+    console.log(data);
+    
     this.empleadoService.update(data).subscribe(() => {
       console.log('actualizado');
       

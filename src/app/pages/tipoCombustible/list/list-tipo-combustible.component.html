@@ -11,27 +11,21 @@
     </div>
 </div>
 
-<h2>Vehiculos</h2>
+<h2>Tipo Combustible</h2>
 
 
 <table class="table">
     <thead class="thead-dark table-dark">
-        <tr>
-            <th>Modelo</th>
-            <th>Tipo Vehiculo</th>
-            <th>Tipo Combustible</th>
-            <th>No Chasis</th>
-            <th>No Motor</th>
-            <th>Acciones</th>
-        </tr>
+      <tr>
+        <th>Descripcion</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of vehiculos">
-            <td>{{item.Modelo}}</td>
-            <td>{{item.TipoVehiculo}}</td>
-            <td>{{item.TipoCombustible}}</td>
-            <td>{{item.NoChasis}}</td>
-            <td>{{item.NoMotor}}</td>
+        <tr *ngFor="let item of tipoCombustible">
+            <td>{{item.Descripcion}}</td>
+            <td>{{item.Estado == 1 ? 'Activo' : 'Inactivo'}}</td>
             <td>
                 <div>
                     <button class="btn btn-danger">Eliminar</button>
@@ -42,4 +36,5 @@
             </td>
         </tr>
     </tbody>
-</table>
+  </table>
+  
