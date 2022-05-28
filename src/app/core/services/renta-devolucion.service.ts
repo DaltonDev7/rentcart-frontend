@@ -47,6 +47,9 @@ export class RentaDevolucionService {
   public update(renta: RentaDevolucion) {
     return this.http.put(`${environment.rentCarApi}RentaDevolucion/Update`, renta)
   }
+  public remove(idrenta?: number) {
+    return this.http.delete(`${environment.rentCarApi}RentaDevolucion/remove/${idrenta}`)
+  }
 
 
 

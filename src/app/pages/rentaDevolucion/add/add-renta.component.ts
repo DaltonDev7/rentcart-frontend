@@ -31,6 +31,7 @@ export class AddRentaComponent implements OnInit {
   clienteCombox!: ComboBox[]
   vehiculoCombox!: ComboBox[]
   showConfirmarDevuelto: boolean = false
+  enableButtonSave:boolean = false
 
   constructor(
     private inspeccionService: InspeccionService,
@@ -68,9 +69,11 @@ export class AddRentaComponent implements OnInit {
 
         
         this.rentaForm.get('FechaRenta')?.disable()
-        this.rentaForm.get('FechaRenta')?.updateValueAndValidity()
         this.rentaForm.get('FechaDevolucion')?.disable()
-        this.rentaForm.get('FechaRenta')?.updateValueAndValidity()
+        this.rentaForm.updateValueAndValidity()
+
+        console.log(this.rentaForm.controls);
+        
 
         this.generalService.setFormatDate(this.rentaForm, 'FechaRenta')
         this.generalService.setFormatDate(this.rentaForm, 'FechaDevolucion')
@@ -78,6 +81,8 @@ export class AddRentaComponent implements OnInit {
       this.showConfirmarDevuelto = true
     }
 
+    console.log(this.rentaForm.valid);
+    
     this.validateTipoVista()
     this.verificarInspeccionVehiculo()
     this.calcularDiasRentas()
@@ -87,19 +92,21 @@ export class AddRentaComponent implements OnInit {
   private verificarInspeccionVehiculo() {
 
     this.rentaForm.get('IdVehiculo')?.valueChanges.subscribe((idVehiculo) => {
-      console.log(idVehiculo);
+   
 
       if (idVehiculo) {
         this.inspeccionService.verificarInspeccionVehiculo(idVehiculo).pipe(take(1)).subscribe((inspeccionado: any) => {
-
-          console.log(inspeccionado);
-
           //si el carro no esta inspeccionado
           if (!inspeccionado) {
             Swal.fire('Este vehiculo aun no ha sido inspeccionado')
             this.generalService.disabledControls(this.rentaForm, ['IdCliente', 'IdVehiculo', 'CantidadDias'])
+
+        
           } else {
-            this.generalService.enableControls(this.rentaForm, ['IdCliente', 'IdVehiculo', 'CantidadDias'])
+            if(this.idRenta != undefined) this.generalService.enableControls(this.rentaForm, ['IdCliente', 'IdVehiculo', 'CantidadDias','FechaRenta','FechaDevolucion'])
+            else this.generalService.enableControls(this.rentaForm, ['IdCliente', 'IdVehiculo', 'CantidadDias'])
+           
+
           }
 
         })
