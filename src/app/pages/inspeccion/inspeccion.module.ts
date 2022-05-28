@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListInspeccionComponent } from './list/list-inspeccion.component';
-import { EditInspeccionComponent } from './edit/edit-inspeccion.component';
 import { AddInspeccionComponent } from './add/add-inspeccion.component';
 import { InspeccionRoutingModule } from './inspeccion-routing.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
 @NgModule({
   declarations: [
     ListInspeccionComponent,
-    EditInspeccionComponent,
     AddInspeccionComponent
   ],
   imports: [
     CommonModule,
-    InspeccionRoutingModule
+    InspeccionRoutingModule,
+    SharedModule
   ]
 })
 export class InspeccionModule { }

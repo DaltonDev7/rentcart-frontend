@@ -6,6 +6,9 @@ import { ComboBox } from 'src/app/core/models/Comboxbox';
 import { Empleado } from 'src/app/core/models/Empleado';
 import { ComboboxService } from 'src/app/core/services/combobox.service';
 import { EmpleadoService } from 'src/app/core/services/empleado.service';
+import { GeneralService } from 'src/app/core/services/general.service';
+
+
 
 @Component({
   selector: 'app-add-or-edit',
@@ -16,6 +19,7 @@ export class AddOrEditComponent implements OnInit {
 
   empleadoForm !: FormGroup;
   estadoCombox!: ComboBox[]
+  tandaCombox!: any[]
   tipoVista!: any;
   validateVista: boolean = false
   title: string = ''
@@ -26,7 +30,8 @@ export class AddOrEditComponent implements OnInit {
     private router: Router,
     private activedRouted: ActivatedRoute,
     private empleadoService: EmpleadoService,
-    private comboBoxService: ComboboxService
+    private comboBoxService: ComboboxService,
+    private generalService : GeneralService
   ) {
     this.idEmpleado = this.router.getCurrentNavigation()?.extras.state?.['idEmpleado']
     this.tipoVista = this.router.getCurrentNavigation()?.extras.state?.['tipoVista']
@@ -35,6 +40,7 @@ export class AddOrEditComponent implements OnInit {
   ngOnInit(): void {
     this.empleadoForm = this.empleadoService.getForm()
     this.estadoCombox = this.comboBoxService.estadoCombox
+    this.tandaCombox = this.comboBoxService.tandaCombox
 
     if (this.idEmpleado != undefined) {
       this.empleadoService.getById(this.idEmpleado).subscribe((empleado: Empleado) => {
@@ -42,8 +48,7 @@ export class AddOrEditComponent implements OnInit {
         this.empleado = empleado
         this.empleadoForm.patchValue(empleado)
 
-        var dateFormat = formatDate(this.empleadoForm.get('FechaIngreso')?.value , 'yyyy-MM-dd', 'en')
-        this.empleadoForm.get('FechaIngreso')?.patchValue(dateFormat)
+        this.generalService.setFormatDate(this.empleadoForm , 'FechaIngreso')
       })
     }
 
@@ -54,7 +59,7 @@ export class AddOrEditComponent implements OnInit {
 
   save() {
     console.log(this.empleadoForm.value);
-    
+
     this.empleadoService.add(this.empleadoForm.value).subscribe(() => {
       this.empleadoForm.reset();
       console.log('guardado');

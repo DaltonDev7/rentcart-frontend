@@ -3,20 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ListInspeccionComponent } from './list/list-inspeccion.component';
 import { AddInspeccionComponent } from './add/add-inspeccion.component';
-import { EditInspeccionComponent } from './edit/edit-inspeccion.component';
+import { InspeccionResolver } from 'src/app/core/resolvers/inspeccion.resolver';
+
 
 const routes: Routes = [
   {
     path:'',
-    component: ListInspeccionComponent
+    component: ListInspeccionComponent,
+    resolve: {
+      inspecciones: InspeccionResolver
+    }
   },
   {
-    path:'add',
+    path:'addOrUpdate',
     component : AddInspeccionComponent
-  },
-  {
-    path:'edit',
-    component:EditInspeccionComponent
   }
 ]
 

@@ -17,7 +17,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     RentaRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class RentaModule { }

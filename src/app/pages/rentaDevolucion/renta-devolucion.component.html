@@ -1,56 +1,43 @@
-
-
-
 <div>
     <div class="">
         <div class="section-add-buscar">
             <div class="">
-                <button type="button" class="btn  btn-add" [routerLink]="['add']">Crear Renta</button>
+                <button type="button" class="btn btn-add" (click)="add('add')">Crear</button>
             </div>
             <div>
                 <input type="text" class="baseInput" placeholder="Buscar">
             </div>
         </div>
     </div>
-
 </div>
 
 <h2>Rentas</h2>
 
 
-<table class="table table-striped table-hover">
-    <thead class="table-title">
+<table class="table">
+    <thead class="thead-dark table-dark">
         <tr>
-            <th>Date Created</th>
-            <th>Role</th>
-            <th>Status</th>
+            <th>Vehiculo</th>
+            <th>Cliente</th>
+            <th>Fecha Renta</th>
+            <th>Cantidad Dias</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>04/10/2013</td>
-            <td>Admin</td>
-            <td><span class="status text-success">&bull;</span> Active</td>
+        <tr *ngFor="let item of rentas">
+            <td>{{item.Vehiculo}}</td>
+            <td>{{item.Cliente}}</td>
+            <td>{{item.FechaRenta | date}}</td>
+            <td>{{item.CantidadDias}}</td>
+            <td>
+                <div>
+                    <button class="btn btn-danger">Eliminar</button>
+                </div>
+                <div>
+                    <button class="btn btn-info" (click)="update(item.Id)">Editar</button>
+                </div>
+            </td>
         </tr>
-        <tr>
-
-            <td>04/10/2013</td>
-            <td>Admin</td>
-            <td><span class="status text-success">&bull;</span> Active</td>
-        </tr>
-        <tr>
-
-            <td>04/10/2013</td>
-            <td>Admin</td>
-            <td><span class="status text-success">&bull;</span> Active</td>
-        </tr>
-        <tr>
-
-            <td>04/10/2013</td>
-            <td>Admin</td>
-            <td><span class="status text-success">&bull;</span> Active</td>
-        </tr>
-
     </tbody>
-
 </table>

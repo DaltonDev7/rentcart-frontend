@@ -9,6 +9,7 @@ export interface Vehiculo extends EntityBase {
     IdTipoCombustible?:number
     IdModelo?:number
     Modelo?:number
+    Marca?:string;
     TipoVehiculo?:string
     TipoCombustible?:string
 }

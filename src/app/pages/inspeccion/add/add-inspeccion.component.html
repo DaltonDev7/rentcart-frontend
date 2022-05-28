@@ -1,1 +1,102 @@
-<p>add-inspeccion works!</p>
+<h3>{{title}} Inspeccion</h3>
+
+<div class="container">
+
+    <form [formGroup]="inspeccionForm">
+        <div class="row">
+            <div class="col-4">
+                <label for="">Vehiculo</label>
+                <ng-select [items]="vehiculoCombox" placeholder="Seleccione" bindLabel="text"
+                    formControlName="IdVehiculo" bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4">
+                <label for="">Cliente</label>
+                <ng-select [items]="clienteCombox" placeholder="Seleccione" bindLabel="text" formControlName="IdCliente"
+                    bindValue="id">
+                </ng-select>
+            </div>
+
+            <div class="col-4">
+                <label for="">Tiene Rayadura</label>
+                <ng-select [items]="respuestaCortaCombox" placeholder="Seleccione" bindLabel="text"
+                    formControlName="TieneRayadura" bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4">
+                <label for="">Cantidad Combustible</label>
+                <ng-select [items]="cantidadCombustible" placeholder="Seleccione" bindLabel="text"
+                    formControlName="CantidadCombustible" bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4">
+                <label for="">Goma Repuesto</label>
+                <ng-select [items]="respuestaCortaCombox" placeholder="Seleccione" bindLabel="text"
+                    formControlName="TieneGomaRepuesto" bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4">
+                <label for="">Tiene Gato</label>
+                <ng-select [items]="respuestaCortaCombox" placeholder="Seleccione" bindLabel="text"
+                    formControlName="TieneGato" bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4">
+                <label for="">Tiene Rotura Cristal</label>
+                <ng-select [items]="respuestaCortaCombox" placeholder="Seleccione" bindLabel="text"
+                    formControlName="TieneRoturaCristal" bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4">
+                <label for="">Fecha</label>
+                <input class="form-control" placeholder="Seleccione" type="date" formControlName="Fecha">
+            </div>
+            <div class="col-4">
+                <label for="">Empleado</label>
+                <ng-select [items]="empleadoCombox" placeholder="Seleccione" bindLabel="text"
+                    formControlName="IdEmpleado" bindValue="id">
+                </ng-select>
+            </div>
+
+            <div class="col-4">
+                <label for="">Estado</label>
+                <ng-select [items]="estadoCombox" placeholder="Seleccione" bindLabel="text" formControlName="Estado"
+                    bindValue="id">
+                </ng-select>
+            </div>
+        </div>
+        <div class="estadoGomas">
+            <h2>Estado de gomas</h2>
+            <div class="col-4">
+                <div>
+                    <input class="form-check-input" type="checkbox" id="defaultCheck1" formControlName="LlantaA">
+                    <label class="form-check-label" for="defaultCheck1">
+                        LlantaA
+                    </label>
+                </div>
+            </div>
+            <div class="col-4">
+                <input class="form-check-input" type="checkbox" id="defaultCheck2" formControlName="LlantaB">
+                <label class="form-check-label" for="defaultCheck2">
+                    LlantaB
+                </label>
+            </div>
+            <div class="col-4">
+                <input class="form-check-input" type="checkbox" id="defaultCheck3" formControlName="LlantaC">
+                <label class="form-check-label" for="defaultCheck3">
+                    LlantaC
+                </label>
+            </div>
+            <div class="col-4">
+                <input class="form-check-input" type="checkbox" id="defaultCheck4" formControlName="LlantaD">
+                <label class="form-check-label" for="defaultCheck4">
+                    LlantaD
+                </label>
+            </div>
+        </div>
+    </form>
+    <button [disabled]="!inspeccionForm.valid" class="btn btn-save" (click)="save()"
+        *ngIf="validateVista">Guardar</button>
+    <button [disabled]="!inspeccionForm.valid" class="btn btn-save" (click)="update()"
+        *ngIf="!validateVista">Editar</button>
+</div>

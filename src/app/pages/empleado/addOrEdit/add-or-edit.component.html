@@ -19,7 +19,9 @@
             </div>
             <div class="col-4">
                 <label for="">Tanda Labor</label>
-                <input type="text" class="baseInput" formControlName="TandaLabor">
+                <ng-select [items]="tandaCombox" placeholder="Seleccione"   bindLabel="text" formControlName="TandaLabor"
+                bindValue="id">
+                </ng-select>
             </div>
             <div class="col-4">
                 <label for="">Porciento Comision</label>
@@ -35,7 +37,7 @@
                 <ng-select [items]="estadoCombox" placeholder="Seleccione"   bindLabel="text" formControlName="Estado"
                 bindValue="id">
                 </ng-select>
-            </div>
+            </div> 
 
         </div>
     </form>

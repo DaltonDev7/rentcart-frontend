@@ -4,14 +4,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { RentaDevolucionComponent } from './renta-devolucion.component';
 import { AddRentaComponent } from './add/add-renta.component';
 import { EditRentaComponent } from './edit/edit-renta.component';
+import { RentaResolver } from 'src/app/core/resolvers/rentaDevolucion.resolver';
 
 const routes: Routes = [
   {
     path:'',
-    component: RentaDevolucionComponent
+    component: RentaDevolucionComponent,
+    resolve: {
+      rentas  : RentaResolver
+    }
   },
   {
-    path:'add',
+    path:'addOrEdit',
     component : AddRentaComponent
   },
   {

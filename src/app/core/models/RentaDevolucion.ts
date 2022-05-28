@@ -5,5 +5,9 @@ export interface RentaDevolucion extends EntityBase {
     FechaDevolucion?: Date
     MontoPorDia?: number
     CantidadPorDia?: number
+    CantidadDias?: number
     Comentario?: number
+    Cliente?:string;
+    Vehiculo?:string;
+    Empleado?:string;
 }

@@ -17,6 +17,7 @@
 <table class="table">
     <thead class="thead-dark table-dark">
         <tr>
+            <th>Marca</th>
             <th>Modelo</th>
             <th>Tipo Vehiculo</th>
             <th>Tipo Combustible</th>
@@ -27,6 +28,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let item of vehiculos">
+            <td>{{item.Marca}}</td>
             <td>{{item.Modelo}}</td>
             <td>{{item.TipoVehiculo}}</td>
             <td>{{item.TipoCombustible}}</td>

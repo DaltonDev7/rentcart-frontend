@@ -15,6 +15,8 @@ export class ListVehiculoComponent implements OnInit {
 
   ngOnInit(): void {
     this.activedRouted.data.subscribe((data: any) => {
+      console.log(data);
+      
       this.vehiculos = data.vehiculos
     })
   }

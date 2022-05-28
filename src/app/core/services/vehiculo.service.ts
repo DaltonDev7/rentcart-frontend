@@ -20,7 +20,8 @@ export class VehiculoService {
       NoPlaca: [null, [Validators.required]],
       IdTipoVehiculo: [null, [Validators.required]],
       IdTipoCombustible: [null],
-      IdModelo: [null, [Validators.required]],
+      IdMarca: [null, [Validators.required]],
+      IdModelo: [{ value: null , disabled: true}],
       Estado: [null, [Validators.required]],
     })
   }
