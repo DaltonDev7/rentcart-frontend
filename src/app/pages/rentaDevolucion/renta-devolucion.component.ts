@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ComboboxService } from 'src/app/core/services/combobox.service';
 import { ComboBox } from 'src/app/core/models/Comboxbox';
 import { BuscardorDTO } from 'src/app/core/models/buscador-dto';
+import { skipWhile } from 'rxjs';
 
 @Component({
   selector: 'app-renta-devolucion',
@@ -114,6 +115,9 @@ export class RentaDevolucionComponent implements OnInit {
   }
 
 
+
+
+
   private validateColumna() {
     this.buscadorForm.get('TipoColumna')?.valueChanges.subscribe((data) => {
       if (data) {
@@ -126,9 +130,6 @@ export class RentaDevolucionComponent implements OnInit {
   private buscarByColumna() {
     this.buscadorForm.get('Columna')?.valueChanges.subscribe((valor) => {
 
-      console.log(valor);
-      
-
       if (valor) {
         let tipoColumna = this.buscadorForm.get('TipoColumna')?.value
 
@@ -140,6 +141,10 @@ export class RentaDevolucionComponent implements OnInit {
         this.rentaService.buscador(buscadorDTO).subscribe((data) => {
           this.rentas = data
           console.log(data);
+        })
+      }else{
+        this.rentaService.getAll().subscribe((data)=>{
+          this.rentas = data
         })
       }
 
