@@ -32,7 +32,7 @@ export class AddRentaComponent implements OnInit {
   clienteCombox!: ComboBox[]
   vehiculoCombox!: ComboBox[]
   showConfirmarDevuelto: boolean = false
-  enableButtonSave:boolean = false
+  enableButtonSave: boolean = false
 
   constructor(
     private toastr: ToastrService,
@@ -69,13 +69,13 @@ export class AddRentaComponent implements OnInit {
         this.rentaForm.patchValue(renta)
 
 
-        
+
         this.rentaForm.get('FechaRenta')?.disable()
         this.rentaForm.get('FechaDevolucion')?.disable()
         this.rentaForm.updateValueAndValidity()
 
         console.log(this.rentaForm.controls);
-        
+
 
         this.generalService.setFormatDate(this.rentaForm, 'FechaRenta')
         this.generalService.setFormatDate(this.rentaForm, 'FechaDevolucion')
@@ -84,33 +84,57 @@ export class AddRentaComponent implements OnInit {
     }
 
     console.log(this.rentaForm.valid);
-    
+
     this.validateTipoVista()
     this.verificarInspeccionVehiculo()
     this.calcularDiasRentas()
+    this.validateFechas()
 
   }
+
+
+  private validateFechas() {
+    this.rentaForm.get('FechaDevolucion')?.valueChanges.subscribe((fechaDevolucion) => {
+
+      let fechaRenta = this.rentaForm.get('FechaRenta')?.value
+      let fechaD = new Date(fechaDevolucion)
+      let fechaR;
+      if (fechaRenta != null) {
+        fechaR = new Date(fechaRenta)
+
+        //validamos si la fecha de devolucion es menor que la fecha de renta.
+        if(fechaD <= fechaR){
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'La fecha de devolucion no puede ser menor a la de renta',
+          })
+          this.rentaForm.get('FechaRenta')?.setValue(null)
+          this.rentaForm.get('FechaDevolucion')?.setValue(null)
+        }
+      } 
+
+      console.log(fechaDevolucion);
+      console.log(fechaD);
+
+    })
+  }
+
+
 
   private verificarInspeccionVehiculo() {
 
     this.rentaForm.get('IdVehiculo')?.valueChanges.subscribe((idVehiculo) => {
-   
-
       if (idVehiculo) {
         this.inspeccionService.verificarInspeccionVehiculo(idVehiculo).pipe(take(1)).subscribe((inspeccionado: any) => {
           //si el carro no esta inspeccionado
           if (!inspeccionado) {
             Swal.fire('Este vehiculo aun no ha sido inspeccionado')
             this.generalService.disabledControls(this.rentaForm, ['IdCliente', 'IdVehiculo', 'CantidadDias'])
-
-        
           } else {
-            if(this.idRenta != undefined) this.generalService.enableControls(this.rentaForm, ['IdCliente', 'IdVehiculo', 'CantidadDias','FechaRenta','FechaDevolucion'])
+            if (this.idRenta != undefined) this.generalService.enableControls(this.rentaForm, ['IdCliente', 'IdVehiculo', 'CantidadDias', 'FechaRenta', 'FechaDevolucion'])
             else this.generalService.enableControls(this.rentaForm, ['IdCliente', 'IdVehiculo', 'CantidadDias'])
-           
-
           }
-
         })
       }
     })
@@ -118,16 +142,12 @@ export class AddRentaComponent implements OnInit {
 
   private calcularDiasRentas() {
     this.rentaForm.get('FechaDevolucion')?.valueChanges.subscribe((fechaDevolucion) => {
-
       let fechaRentaMoment = moment(this.rentaForm.get('FechaRenta')?.value)
-
-
       if (fechaRentaMoment != null) {
         let fechaDevolucionMoment = moment(fechaDevolucion)
         let cantidadDias = fechaDevolucionMoment.diff(fechaRentaMoment, "days")
         this.rentaForm.get('CantidadDias')?.setValue(cantidadDias)
       }
-
     })
   }
 
@@ -162,34 +182,24 @@ export class AddRentaComponent implements OnInit {
   }
   update() {
     let data = { ...this.renta, ...this.rentaForm.getRawValue() }
-
     this.rentaDevolucionService.update(data).subscribe((data) => {
-      console.log(data);
-      
       Swal.fire({
         icon: 'success',
         title: 'Renta Actualizada',
         showConfirmButton: false,
         timer: 1500
       })
-
     })
   }
 
   private validateTipoVista() {
-
-
     if (this.tipoVista === 'add') {
       this.title = 'Crear'
       this.validateVista = true
-
-
     } else {
       this.title = 'Editar'
       this.validateVista = false
-
     }
-
   }
 
 }

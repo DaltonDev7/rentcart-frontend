@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ComboBox } from 'src/app/core/models/Comboxbox';
 import { Empleado } from 'src/app/core/models/Empleado';
 import { ComboboxService } from 'src/app/core/services/combobox.service';
@@ -29,6 +30,7 @@ export class AddOrEditComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private toastr: ToastrService,
     private activedRouted: ActivatedRoute,
     private empleadoService: EmpleadoService,
     private comboBoxService: ComboboxService,
@@ -61,11 +63,17 @@ export class AddOrEditComponent implements OnInit {
   save() {
     console.log(this.empleadoForm.value);
 
-    this.empleadoService.add(this.empleadoForm.value).subscribe(() => {
-      this.empleadoForm.reset();
-      console.log('guardado');
+    let isValid = this.generalService.isValidCedula(this.empleadoForm.get('Cedula')?.value)
 
-    })
+    if (isValid){
+      this.empleadoService.add(this.empleadoForm.value).subscribe(() => {
+        this.empleadoForm.reset();
+        console.log('guardado');
+      })
+    }else{
+      this.toastr.error("Cedula invalida")
+    }
+
   }
   update() {
 
