@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { toastMessage } from 'src/app/core/enums/toastMessage';
 import { ComboBox } from 'src/app/core/models/Comboxbox';
 import { Modelo } from 'src/app/core/models/Modelo';
 import { ComboboxService } from 'src/app/core/services/combobox.service';
@@ -23,7 +25,11 @@ export class AddOrUpdatemodeloComponent implements OnInit {
   idModelo?: number;
   modelo!: Modelo;
 
-  constructor(private modeloService: ModeloService, private comboxService: ComboboxService, private router: Router,) {
+  constructor(
+    private toastr: ToastrService,
+    private modeloService: ModeloService, 
+    private comboxService: ComboboxService, 
+    private router: Router,) {
     this.idModelo = this.router.getCurrentNavigation()?.extras.state?.['idModelo']
     this.tipoVista = this.router.getCurrentNavigation()?.extras.state?.['tipoVista']
   }
@@ -50,9 +56,10 @@ export class AddOrUpdatemodeloComponent implements OnInit {
   }
 
   save() {
+   
     this.modeloService.add(this.modeloForm.value).subscribe(() => {
       this.modeloForm.reset();
-      console.log('guardado');
+      this.toastr.success(toastMessage.saveSuccess);
     })
   }
   
@@ -60,7 +67,7 @@ export class AddOrUpdatemodeloComponent implements OnInit {
 
     let data = { ...this.modelo, ...this.modeloForm.value }
     this.modeloService.update(data).subscribe(() => {
-      console.log('actualizado');
+      this.toastr.success(toastMessage.updateSuccess);
     })
   }
 

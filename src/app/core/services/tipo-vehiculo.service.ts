@@ -23,14 +23,17 @@ export class TipoVehiculoService {
     return this.http.post(`${environment.rentCarApi}TipoVehiculo`, tipoVehiculo)
   }
 
-  public getAll():Observable<TipoVehiculo[]> {
+  public getAll(): Observable<TipoVehiculo[]> {
     return this.http.get<TipoVehiculo[]>(`${environment.rentCarApi}TipoVehiculo`)
   }
 
-  public getById(idtipoVehiculo : number){
+  public getById(idtipoVehiculo: number) {
     return this.http.get(`${environment.rentCarApi}TipoVehiculo/GetById/${idtipoVehiculo}`)
   }
-  public update(tipoVehiculo: TipoVehiculo){
+  public remove(idTipoVehiculo?: number) {
+    return this.http.delete(`${environment.rentCarApi}TipoVehiculo/remove/${idTipoVehiculo}`)
+  }
+  public update(tipoVehiculo: TipoVehiculo) {
     return this.http.put(`${environment.rentCarApi}TipoVehiculo/Update`, tipoVehiculo)
   }
 }

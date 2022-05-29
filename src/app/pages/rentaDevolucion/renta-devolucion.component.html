@@ -1,12 +1,26 @@
 <div>
     <div class="">
         <div class="section-add-buscar">
-            <div class="">
-                <button type="button" class="btn btn-add" (click)="add('add')">Crear</button>
+            <div class="d-flex">
+                <div class="">
+                    <button type="button" class="btn btn-add config" (click)="add('add')">Crear</button>
+                </div>
+                <div>
+                    <button type="button" class="btn-generar" (click)="exportToPdf()">Generar reporte</button>
+                </div>
             </div>
-            <div>
-                <input type="text" class="baseInput" placeholder="Buscar">
-            </div>
+            <form [formGroup]="buscadorForm">
+                <div>
+                    <div>
+                        <ng-select [items]="columnasCombox" formControlName="TipoColumna" placeholder="Seleccione"
+                            bindLabel="text" bindValue="id">
+                        </ng-select>
+                    </div>
+                    <div>
+                        <input type="text" class="baseInput" placeholder="Buscar" formControlName="Columna">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -14,7 +28,7 @@
 <h2>Rentas</h2>
 
 
-<table class="table">
+<table class="table" id="my-table">
     <thead class="thead-dark table-dark">
         <tr>
             <th>Vehiculo</th>

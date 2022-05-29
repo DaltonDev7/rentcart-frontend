@@ -30,7 +30,7 @@
             <td>{{item.Estado == 1 ? 'Activo' : 'Inactivo'}}</td>
             <td>
                 <div>
-                    <button class="btn btn-danger">Eliminar</button>
+                    <button class="btn btn-danger" (click)="remove(item.Id)">Eliminar</button>
                 </div>
                 <div>
                     <button class="btn btn-info" (click)="update(item.Id)">Editar</button>

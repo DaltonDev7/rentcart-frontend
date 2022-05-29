@@ -7,6 +7,7 @@ import { Empleado } from 'src/app/core/models/Empleado';
 import { ComboboxService } from 'src/app/core/services/combobox.service';
 import { EmpleadoService } from 'src/app/core/services/empleado.service';
 import { GeneralService } from 'src/app/core/services/general.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -76,6 +77,8 @@ export class AddOrEditComponent implements OnInit {
       
     })
   }
+
+
 
   private validateTipoVista() {
 

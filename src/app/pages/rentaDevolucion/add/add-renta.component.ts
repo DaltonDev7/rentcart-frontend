@@ -11,6 +11,7 @@ import { RentaDevolucionService } from 'src/app/core/services/renta-devolucion.s
 import Swal from 'sweetalert2';
 import * as moment from 'moment';
 import { UpdateRentaDTO } from 'src/app/core/models/update-renta-dto';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class AddRentaComponent implements OnInit {
   enableButtonSave:boolean = false
 
   constructor(
+    private toastr: ToastrService,
     private inspeccionService: InspeccionService,
     private router: Router,
     private activedRouted: ActivatedRoute,

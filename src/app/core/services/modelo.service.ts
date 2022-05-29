@@ -28,6 +28,9 @@ export class ModeloService {
   public add(modelo: Modelo) {
     return this.http.post(`${environment.rentCarApi}Modelo`, modelo)
   }
+  public remove(idmodelo ?: number){
+    return this.http.delete(`${environment.rentCarApi}Modelo/remove/${idmodelo}`)
+  }
   public getById(IdModelo: number) {
     return this.http.get(`${environment.rentCarApi}Modelo/getById/${IdModelo}`)
   }

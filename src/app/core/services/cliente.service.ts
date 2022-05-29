@@ -34,8 +34,13 @@ export class ClienteService {
   getById(IdCliente: number) {
     return this.http.get(`${environment.rentCarApi}Cliente/GetById/${IdCliente}`)
   }
+
   getAll() {
     return this.http.get(`${environment.rentCarApi}Cliente`)
+  }
+
+  remove(IdCliente?: number) {
+    return this.http.delete(`${environment.rentCarApi}Cliente/remove/${IdCliente}`)
   }
 
 }

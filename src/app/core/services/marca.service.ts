@@ -28,14 +28,16 @@ export class MarcaService {
     return this.http.get(`${environment.rentCarApi}Marcas`)
   }
   public getById(idMarca: number) {
-   return this.http.get(`${environment.rentCarApi}Marcas/GetById/${idMarca}`)
-
+    return this.http.get(`${environment.rentCarApi}Marcas/GetById/${idMarca}`)
+  }
+  public remove(idmodelo?: number) {
+    return this.http.delete(`${environment.rentCarApi}Marcas/remove/${idmodelo}`)
   }
 
   public update(marca: Marca) {
     return this.http.put(`${environment.rentCarApi}Marcas/Update`, marca)
   }
 
- 
+
 
 }

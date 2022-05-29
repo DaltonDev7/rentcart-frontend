@@ -32,6 +32,9 @@ export class EmpleadoService {
   getById(Idempleado: number) {
     return this.http.get(`${environment.rentCarApi}Empleado/GetById/${Idempleado}`)
   }
+  remove(Idempleado?: number) {
+    return this.http.delete(`${environment.rentCarApi}Empleado/remove/${Idempleado}`)
+  }
   getAll() {
     return this.http.get(`${environment.rentCarApi}Empleado`)
   }

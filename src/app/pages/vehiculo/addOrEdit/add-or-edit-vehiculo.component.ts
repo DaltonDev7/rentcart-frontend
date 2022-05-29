@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { toastMessage } from 'src/app/core/enums/toastMessage';
 import { ComboBox } from 'src/app/core/models/Comboxbox';
 import { Vehiculo } from 'src/app/core/models/Vehiculo';
 import { ComboboxService } from 'src/app/core/services/combobox.service';
@@ -31,7 +33,8 @@ export class AddOrEditVehiculoComponent implements OnInit {
     private router: Router,
     private vehiculoService: VehiculoService,
     private comboBoxService: ComboboxService,
-    private generalService: GeneralService
+    private generalService: GeneralService,
+    private toastr: ToastrService,
   ) {
     this.idVehiculo = this.router.getCurrentNavigation()?.extras.state?.['idVehiculo']
     this.tipoVista = this.router.getCurrentNavigation()?.extras.state?.['tipoVista']
@@ -73,7 +76,7 @@ export class AddOrEditVehiculoComponent implements OnInit {
 
     this.vehiculoService.add(this.vehiculoForm.value).subscribe(() => {
       this.vehiculoForm.reset();
-      console.log('guardado');
+      this.toastr.success(toastMessage.updateSuccess);
 
     })
   }
@@ -82,8 +85,7 @@ export class AddOrEditVehiculoComponent implements OnInit {
     let data = { ...this.vehiculo, ...this.vehiculoForm.value }
 
     this.vehiculoService.update(data).subscribe(() => {
-      console.log('actualizado');
-
+      this.toastr.success(toastMessage.updateSuccess);
     })
   }
 

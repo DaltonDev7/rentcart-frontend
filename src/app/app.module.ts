@@ -8,6 +8,8 @@ import { HomeComponent } from './Home/home.component';
 import { SidebarModule } from './shared/sidebar/sidebar.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,12 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     SidebarModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      timeOut : 3000,
+      positionClass  :'toast-bottom-left',
+      preventDuplicates: true,
+    }),
     NgxMaskModule.forRoot()
   ],
   providers: [],

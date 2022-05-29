@@ -21,7 +21,7 @@ export class VehiculoService {
       IdTipoVehiculo: [null, [Validators.required]],
       IdTipoCombustible: [null],
       IdMarca: [null, [Validators.required]],
-      IdModelo: [{ value: null , disabled: true}],
+      IdModelo: [{ value: null, disabled: true }],
       Estado: [null, [Validators.required]],
     })
   }
@@ -36,6 +36,9 @@ export class VehiculoService {
 
   public getById(idVehiculo: number) {
     return this.http.get(`${environment.rentCarApi}Vehiculo/GetById/${idVehiculo}`)
+  }
+  public remove(idVehiculo?: number) {
+    return this.http.delete(`${environment.rentCarApi}Vehiculo/remove/${idVehiculo}`)
   }
   public update(vehiculo: Vehiculo) {
     return this.http.put(`${environment.rentCarApi}Vehiculo/Update`, vehiculo)

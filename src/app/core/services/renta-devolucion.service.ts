@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { BuscardorDTO } from '../models/buscador-dto';
 import { RentaDevolucion } from '../models/RentaDevolucion';
 import { UpdateRentaDTO } from '../models/update-renta-dto';
 import { ValidateRentaDTO } from '../models/validateRenta';
@@ -33,6 +34,13 @@ export class RentaDevolucionService {
   public add(renta: RentaDevolucion): Observable<any> {
     return this.http.post(`${environment.rentCarApi}RentaDevolucion`, renta)
   }
+
+  public buscador(renta: BuscardorDTO): Observable<any> {
+    console.log(renta);
+    
+    return this.http.post(`${environment.rentCarApi}RentaDevolucion/buscadorRenta`, renta)
+  }
+
   public verificarRenta(payload: ValidateRentaDTO): Observable<any> {
     return this.http.post(`${environment.rentCarApi}RentaDevolucion/verificarRentaDisponible`, payload)
   }

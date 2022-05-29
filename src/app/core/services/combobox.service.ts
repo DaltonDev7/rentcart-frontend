@@ -68,6 +68,22 @@ export class ComboboxService {
     },
   ]
 
+
+  columnasRentasCombox: ComboBox[] = [
+    {
+      id: 1,
+      text: 'Cliente'
+    },
+    {
+      id: 2,
+      text: 'Vehiculo'
+    },
+    {
+      id: 3,
+      text: 'Fecha Renta'
+    }
+  ]
+
   public getClienteComboBox(): Observable<ComboBox[]> {
     return this.http.get<ComboBox[]>(`${environment.rentCarApi}ComboxBox/Cliente`)
   }

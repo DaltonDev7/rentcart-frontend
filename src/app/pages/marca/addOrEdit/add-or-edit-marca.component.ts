@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { toastMessage } from 'src/app/core/enums/toastMessage';
 import { ComboBox } from 'src/app/core/models/Comboxbox';
 import { Marca } from 'src/app/core/models/Marca';
 import { ComboboxService } from 'src/app/core/services/combobox.service';
@@ -23,6 +25,7 @@ export class AddOrEditMarcaComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private toastr: ToastrService,
     private activedRouted: ActivatedRoute,
     private marcaService: MarcaService,
     private comboBoxService: ComboboxService
@@ -53,8 +56,7 @@ export class AddOrEditMarcaComponent implements OnInit {
   save() {
     this.marcaService.add(this.marcaForm.value).subscribe(() => {
       this.marcaForm.reset();
-      console.log('guardado');
-
+      this.toastr.success(toastMessage.saveSuccess);
     })
   }
   update() {
@@ -62,8 +64,7 @@ export class AddOrEditMarcaComponent implements OnInit {
     let data = { ...this.marca, ...this.marcaForm.value }
 
     this.marcaService.update(data).subscribe(() => {
-      console.log('actualizado');
-      
+      this.toastr.success(toastMessage.updateSuccess);
     })
   }
 
