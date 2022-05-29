@@ -1,0 +1,57 @@
+<div>
+    <div class="">
+        <div class="section-add-buscar">
+            <div class="d-flex">
+                <div class="">
+                    <button type="button" class="btn btn-add config" (click)="add('add')">Crear</button>
+                </div>
+                <div>
+                    <button type="button" class="btn-generar" (click)="exportToPdf()">Generar reporte</button>
+                </div>
+            </div>
+            <form [formGroup]="buscadorForm">
+                <div>
+                    <div>
+                        <ng-select [items]="columnasCombox" formControlName="TipoColumna" placeholder="Seleccione"
+                            bindLabel="text" bindValue="id">
+                        </ng-select>
+                    </div>
+                    <div>
+                        <input type="text" class="baseInput" placeholder="Buscar" formControlName="Columna">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<h2>Rentas</h2>
+
+
+<table class="table" id="my-table">
+    <thead class="thead-dark table-dark">
+        <tr>
+            <th>Vehiculo</th>
+            <th>Cliente</th>
+            <th>Fecha Renta</th>
+            <th>Cantidad Dias</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of rentas">
+            <td>{{item.Vehiculo}}</td>
+            <td>{{item.Cliente}}</td>
+            <td>{{item.FechaRenta | date}}</td>
+            <td>{{item.CantidadDias}}</td>
+            <td>
+                <div>
+                    <button class="btn btn-danger" (click)="remove(item.Id)">Eliminar</button>
+                </div>
+                <div>
+                    <button class="btn btn-info" (click)="update(item.Id)">Editar</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+<div>
+    <div class="">
+        <div class="section-add-buscar">
+            <div class="">
+                <button type="button" class="btn  btn-add" (click)="add('add')">Crear</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Empleados</h2>
+
+
+<table class="table">
+    <thead class="thead-dark table-dark">
+        <tr>
+            <th>Cedula</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Tanda Labor</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of empleados">
+            <td>{{item.Cedula == undefined ? '' :  item.Cedula | mask: '000-0000000-0' }}</td>
+            <td>{{item.Nombres}}</td>
+            <td>{{item.Apellidos}}</td>
+            <td>{{item.TandaLabor}}</td>
+            <td>
+                <div>
+                    <button class="btn btn-danger"  (click)="remove(item.Id)">Eliminar</button>
+                </div>
+                <div>
+                    <button class="btn btn-info" (click)="update(item.Id)">Editar</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

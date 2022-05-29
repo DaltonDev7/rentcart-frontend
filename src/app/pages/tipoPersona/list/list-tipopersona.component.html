@@ -1,0 +1,40 @@
+<div>
+    <div class="">
+        <div class="section-add-buscar">
+            <div class="">
+                <button type="button" class="btn  btn-add" [routerLink]="['add']">Crear</button>
+            </div>
+            <!-- <div>
+                <input type="text" class="baseInput" placeholder="Buscar">
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<h2>Tipo Persona</h2>
+
+
+<table class="table">
+    <thead class="thead-dark table-dark">
+      <tr>
+        <th>Descripcion</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of tipoPersona">
+            <td>{{item.Descripcion}}</td>
+            <td>{{item.Estado == 1 ? 'Activo' : 'Inactivo'}}</td>
+            <td>
+                <div>
+                    <button class="btn btn-danger">Eliminar</button>
+                </div>
+                <div>
+                    <button class="btn btn-info" [routerLink]="['edit', item.Id]">Editar</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  

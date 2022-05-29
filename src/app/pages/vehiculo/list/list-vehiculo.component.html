@@ -1,0 +1,47 @@
+<div>
+    <div class="">
+        <div class="section-add-buscar">
+            <div class="">
+                <button type="button" class="btn  btn-add" (click)="add('add')">Crear</button>
+            </div>
+            <!-- <div>
+                <input type="text" class="baseInput" placeholder="Buscar">
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<h2>Vehiculos</h2>
+
+
+<table class="table">
+    <thead class="thead-dark table-dark">
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Tipo Vehiculo</th>
+            <th>Tipo Combustible</th>
+            <th>No Chasis</th>
+            <th>No Motor</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of vehiculos">
+            <td>{{item.Marca}}</td>
+            <td>{{item.Modelo}}</td>
+            <td>{{item.TipoVehiculo}}</td>
+            <td>{{item.TipoCombustible}}</td>
+            <td>{{item.NoChasis}}</td>
+            <td>{{item.NoMotor}}</td>
+            <td>
+                <div>
+                    <button class="btn btn-danger" (click)="remove(item.Id)">Eliminar</button>
+                </div>
+                <div>
+                    <button class="btn btn-info" (click)="update(item.Id)">Editar</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

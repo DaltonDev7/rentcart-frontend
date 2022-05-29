@@ -1,0 +1,24 @@
+<h3>{{title}} Tipo Combustible</h3>
+
+<div class="container">
+
+    <form [formGroup]="tipoCombustibleForm">
+        <div class="row">
+
+            <div class="col-4">
+                <label for="">Descripcion</label>
+                <input type="text" class="baseInput" formControlName="Descripcion">
+            </div>
+
+            <div class="col-4">
+                <label for="">Estado</label>
+                <ng-select [items]="estadoCombox" placeholder="Seleccione"   bindLabel="text" formControlName="Estado"
+                bindValue="id">
+                </ng-select>
+            </div>
+
+        </div>
+    </form>
+    <button [disabled]="!tipoCombustibleForm.valid" class="btn btn-save" (click)="save()" *ngIf="validateVista">Guardar</button>
+    <button [disabled]="!tipoCombustibleForm.valid" class="btn btn-save" (click)="update()" *ngIf="!validateVista">Editar</button>
+</div>

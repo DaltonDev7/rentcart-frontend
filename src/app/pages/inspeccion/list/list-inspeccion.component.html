@@ -1,0 +1,43 @@
+<div>
+    <div class="">
+        <div class="section-add-buscar">
+            <div class="">
+                <button type="button" class="btn  btn-add" (click)="add('add')">Crear</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Inspecciones</h2>
+
+
+<table class="table">
+    <thead class="thead-dark table-dark">
+        <tr>
+            <th>Vehiculo</th>
+            <th>Cliente</th>
+            <th>Cantidad Combustible</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of inspecciones">
+            <td>{{item.Vehiculo}}</td>
+            <td>{{item.Cliente}}</td>
+            <td>{{item.CantidadCombustible}}</td>
+            <td>{{item.Fecha | date}}</td>
+            <td>
+                <div>
+                    <button class="btn btn-danger" (click)="remove(item.Id)">Eliminar</button>
+                </div>
+                <div>
+                    <button class="btn btn-info" (click)="update(item.Id)">Editar</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+

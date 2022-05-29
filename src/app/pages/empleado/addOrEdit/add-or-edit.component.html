@@ -1,0 +1,46 @@
+<h3>{{title}} Empleado</h3>
+
+<div class="container">
+
+    <form [formGroup]="empleadoForm">
+        <div class="row">
+
+            <div class="col-4">
+                <label for="">Cedula</label>
+                <input type="text" class="baseInput" formControlName="Cedula" mask="000-0000000-0">
+            </div>
+            <div class="col-4">
+                <label for="">Nombres</label>
+                <input type="text" class="baseInput" formControlName="Nombres">
+            </div>
+            <div class="col-4">
+                <label for="">Apellidos</label>
+                <input type="text" class="baseInput" formControlName="Apellidos">
+            </div>
+            <div class="col-4">
+                <label for="">Tanda Labor</label>
+                <ng-select [items]="tandaCombox" placeholder="Seleccione"   bindLabel="text" formControlName="TandaLabor"
+                bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4">
+                <label for="">Porciento Comision</label>
+                <input type="text" class="baseInput" formControlName="PorcientoComision" suffix="%"  mask="separator.2">
+            </div>
+            <div class="col-4">
+                <label for="">Fecha Ingreso</label>
+                <input type="date" class="form-control" formControlName="FechaIngreso">
+            </div>
+
+            <div class="col-4">
+                <label for="">Estado</label>
+                <ng-select [items]="estadoCombox" placeholder="Seleccione"   bindLabel="text" formControlName="Estado"
+                bindValue="id">
+                </ng-select>
+            </div> 
+
+        </div>
+    </form>
+    <button [disabled]="!empleadoForm.valid" class="btn btn-save" (click)="save()" *ngIf="validateVista">Guardar</button>
+    <button [disabled]="!empleadoForm.valid" class="btn btn-save" (click)="update()" *ngIf="!validateVista">Editar</button>
+</div>

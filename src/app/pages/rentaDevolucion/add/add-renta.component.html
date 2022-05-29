@@ -1,0 +1,66 @@
+<h3>{{title}} Renta</h3>
+
+<div class="container">
+
+    <form [formGroup]="rentaForm">
+        <div class="row">
+            <div class="form-group mb-3 col-4">
+                <label for="">Cliente</label>
+                <ng-select [items]="clienteCombox" formControlName="IdCliente" placeholder="Seleccione" bindLabel="text" bindValue="id"  >
+                </ng-select>
+            </div>
+            <div class="col-4 mb-3 ">
+                <label for="">Vehiculo</label>
+                <ng-select [items]="vehiculoCombox" formControlName="IdVehiculo" placeholder="Seleccione" bindLabel="text" bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4 mb-3 ">
+                <label for="">Fecha Renta</label>
+                <input type="date" class="form-control" formControlName="FechaRenta">
+            </div>
+            <div class="col-4 mb-3 ">
+                <label for="">Fecha Devolucion</label>
+                <input type="date" class="form-control" formControlName="FechaDevolucion">
+            </div>
+            <div class="col-4">
+                <label for="">Cantidad Dias</label>
+                <input class="form-control" formControlName="CantidadDias" mask="separator.2">
+            </div>
+            <div class="col-4">
+                <label for="">Monto por Dia</label>
+                <input class="form-control" formControlName="MontoPorDia" mask="separator.2">
+            </div>
+            <div class="col-4">
+                <label for="">Cantidad por Dia</label>
+                <input class="form-control" formControlName="CantidadPorDia" mask="separator.2">
+            </div>
+            <div class="col-4 mb-3 ">
+                <label for="">Empleado</label>
+                <ng-select [items]="empleadoCombox" formControlName="IdEmpleado" placeholder="Seleccione" bindLabel="text" bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-4 mb-3 ">
+                <label for="">Estado</label>
+                <ng-select [items]="estadoCombox" formControlName="Estado" placeholder="Seleccione"  bindLabel="text" bindValue="id">
+                </ng-select>
+            </div>
+            <div class="col-6">
+                <label for="">Comentario</label>
+                <textarea name="" id="" cols="30" rows="10" class="baseInput config-textarea" formControlName="Comentario"></textarea>
+            </div>
+        </div>
+        <div class="row" *ngIf="showConfirmarDevuelto">
+            <h3>Confirmar Devolucion</h3>
+            <div class="col-4">
+                <div>
+                    <input class="form-check-input" type="checkbox" id="defaultCheck1" formControlName="confirmarDevolucion">
+                    <label class="form-check-label" for="defaultCheck1">
+                        confirmar Devolucion
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <button [disabled]="!rentaForm.valid" class="btn btn-save" (click)="save()" *ngIf="validateVista">Guardar</button>
+    <button [disabled]="!rentaForm.valid" class="btn btn-save" (click)="update()" *ngIf="!validateVista">Editar</button>
+</div>

@@ -1,0 +1,46 @@
+<h3>{{title}} Cliente</h3>
+
+<div class="container">
+
+    <form [formGroup]="clienteForm">
+        <div class="row">
+
+            <div class="col-4">
+                <label for="">Cedula</label>
+                <input type="text" class="baseInput" formControlName="Cedula" mask="000-0000000-0">
+            </div>
+            <div class="col-4">
+                <label for="">Nombres</label>
+                <input type="text" class="baseInput" formControlName="Nombres">
+            </div>
+            <div class="col-4">
+                <label for="">Apellidos</label>
+                <input type="text" class="baseInput" formControlName="Apellidos">
+            </div>
+            <div class="col-4">
+                <label for="">NoTarjetaCR</label>
+                <input type="text" class="baseInput" formControlName="NoTarjetaCR" mask="0000-0000-0000-0000">
+            </div>
+            <div class="col-4">
+                <label for="">Limite Credito</label>
+                <input type="text" class="baseInput" formControlName="LimiteCredito"  mask="separator.2">
+            </div>
+            <div class="col-4">
+                <label for="">Tipo Persona</label>
+                <ng-select [items]="tipoPersonaCombox" placeholder="Seleccione"   bindLabel="text" formControlName="IdTipoPersona"
+                  bindValue="id">
+                </ng-select>
+            </div>
+
+            <div class="col-4">
+                <label for="">Estado</label>
+                <ng-select [items]="estadoCombox" placeholder="Seleccione"   bindLabel="text" formControlName="Estado"
+                bindValue="id">
+                </ng-select>
+            </div>
+
+        </div>
+    </form>
+    <button [disabled]="!clienteForm.valid" class="btn btn-save" (click)="save()" *ngIf="validateVista">Guardar</button>
+    <button [disabled]="!clienteForm.valid" class="btn btn-save" (click)="update()" *ngIf="!validateVista">Editar</button>
+</div>
