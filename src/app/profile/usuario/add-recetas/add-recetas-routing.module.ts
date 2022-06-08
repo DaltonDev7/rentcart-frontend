@@ -10,7 +10,6 @@ const routes: Routes = [
   }
 ]
 
-
 @NgModule({
   imports: [
     CommonModule,
