@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { MiperfilComponent } from './miperfil.component';
 import { GetPostByUserResolver } from '../../core/resolvers/get-post-by-user.resolver';
 
+
+
 const routes: Routes = [
   {
     path: '',
