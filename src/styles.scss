@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-//bootstrap
-@import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
+
+//import tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 //ngtoast
 @import '~ngx-toastr/toastr';

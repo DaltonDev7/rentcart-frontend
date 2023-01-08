@@ -1,99 +1,88 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar-config" style="width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <svg class="bi pe-none me-2" width="40" height="32">
-            <use xlink:href="#bootstrap" />
-        </svg>
-        <span class="fs-4">RentCar</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-        <li>
-            <div  class="nav-link text-white pointer" [routerLink]="['/renta']">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#speedometer2" />
-                </svg>
-                Rentas
-            </div>
-        </li>
-        <li>
-            <div  class="nav-link text-white pointer" [routerLink]="['/renta/inspeccion']">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#speedometer2" />
-                </svg>
-                Inspecciones
-            </div>
-        </li>
-        <li>
-            <div  class="nav-link text-white pointer" [routerLink]="['/renta/marca']">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#table" />
-                </svg>
-                Marcas
-            </div>
-        </li>
-        <li>
-            <div  class="nav-link text-white pointer" [routerLink]="['/renta/modelo']">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#grid" />
-                </svg>
-                Modelos
-            </div>
-        </li>
-        <li>
-            <div  class="nav-link text-white pointer" [routerLink]="['/renta/tipoPersona']">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#people-circle" />
-                </svg>
-                Tipo Persona
-            </div>
-        </li>
-        <li>
-            <div  class="nav-link text-white pointer" [routerLink]="['/renta/tipoCombustible']">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#people-circle" />
-                </svg>
-                Tipo Combustible
-            </div>
-        </li>
-        <li>
-            <div  class="nav-link text-white pointer" [routerLink]="['/renta/vehiculos']">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#people-circle" />
-                </svg>
-                Vehiculo
-            </div>
-        </li>
-        <li>
-            <div  class="nav-link text-white pointer" [routerLink]="['/renta/tipoVehiculos']">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#people-circle" />
-                </svg>
-                Tipo Vehiculo
-            </div>
-        </li>
-        <li>
-            <div  class="nav-link text-white pointer" [routerLink]="['/renta/empleados']">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#people-circle" />
-                </svg>
-                Empleados
-            </div>
-        </li>
-        <li>
-            <div  class="nav-link text-white pointer" [routerLink]="['/renta/clientes']">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                    <use xlink:href="#people-circle" />
-                </svg>
-                Clientes
-            </div>
-        </li>
-    </ul>
-    <hr>
-    <div class="dropdown">
-        <a  class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
-            data-bs-toggle="dropdown" aria-expanded="false">
-         
-            <strong>Salir</strong>
-        </a>
+
+
+<div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800 sidebar-config">
+    <div class=" flex flex-col top-0 left-0 w-64 bg-white h-full border-r">
+        <div class="flex items-center justify-center h-14 border-b">
+            <div>RentCar</div>
+        </div>
+        <div class="overflow-y-auto overflow-x-hidden flex-grow">
+            <ul class="flex flex-col py-4 space-y-1">
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Menu</div>
+                    </div>
+                </li>
+                <li>
+                    <a [routerLink]="['']"
+                        class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Rentas</span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/inspeccion']"
+                        class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4.867 19.125h.008v.008h-.008v-.008z"></path>
+                            </svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Inspección</span>
+                    </a>
+                </li>
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Mantenimientos</div>
+                    </div>
+                </li>
+                <li *ngFor="let option of menuOpciones">
+                    <a routerLink="/{{option.route}}"
+                        class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z"></path>
+                            </svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">{{option.label}}</span>
+                    </a>
+                </li>
+ 
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Otras opciones</div>
+                    </div>
+                </li>
+                <li>
+                    <a
+                        class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

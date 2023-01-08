@@ -6,17 +6,16 @@ import { HomeComponent } from './Home/home.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'signin',
-    pathMatch: 'prefix'
+    component: HomeComponent,
+    loadChildren: () => import("./pages/pages.module").then(m => m.PagesModule)
   },
   {
     path: 'signin',
     loadChildren: () => import("./authentication/sign-in/sign-in.module").then(m => m.SignInModule)
   },
   {
-    path: 'renta',
-    component: HomeComponent,
-    loadChildren: () => import("./pages/pages.module").then(m => m.PagesModule)
+    path: '**',
+    loadChildren: () => import("./shared/page404/page404.module").then(m => m.Page404Module)
   }
 ]
 
