@@ -14,6 +14,10 @@ export const MENU_OPCIONES: MenuOpciones[] = [
         route: 'tipoPersona'
     },
     {
+        label: 'Tipo Vehiculo',
+        route: 'tipoVehiculos'
+    },
+    {
         label: 'Tipo Combustible',
         route: 'tipoCombustible'
     },

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Cliente } from 'src/app/core/models/Cliente';
 import { ClienteService } from 'src/app/core/services/cliente.service';
 import Swal from 'sweetalert2';
@@ -14,7 +15,12 @@ export class ListClienteComponent implements OnInit {
 
   clientes!: Cliente[]
 
-  constructor(private router: Router, private activedRouted: ActivatedRoute, private clienteService: ClienteService) { }
+  constructor(
+    private toast: ToastrService,
+    private router: Router,
+    private activedRouted: ActivatedRoute,
+    private clienteService: ClienteService
+  ) { }
 
 
   ngOnInit(): void {
@@ -26,14 +32,11 @@ export class ListClienteComponent implements OnInit {
   }
 
   add(tipoVista: string) {
-    console.log(tipoVista);
-    this.router.navigate(['/renta/clientes/addOrEdit'], { relativeTo: this.activedRouted, state: { tipoVista } })
+    this.router.navigate(['/clientes/addOrEdit'], { relativeTo: this.activedRouted, state: { tipoVista } })
   }
 
   update(idCliente?: number) {
-    console.log(idCliente);
-
-    this.router.navigate(['/renta/clientes/addOrEdit'], { relativeTo: this.activedRouted, state: { idCliente } })
+    this.router.navigate(['/clientes/addOrEdit'], { relativeTo: this.activedRouted, state: { idCliente } })
   }
 
   remove(idcliente?: number) {
@@ -46,11 +49,15 @@ export class ListClienteComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        this.clienteService.remove(idcliente).subscribe((data) => {
-
-          this.clienteService.getAll().subscribe((cliente: any) => {
-            this.clientes = cliente
-          })
+        this.clienteService.remove(idcliente).subscribe({
+          next: () => {
+            this.clienteService.getAll().subscribe((cliente: any) => {
+              this.clientes = cliente
+            })
+          },
+          error: () => {
+            this.toast.error("Ha ocurrido un error")
+          }
         })
       }
     })

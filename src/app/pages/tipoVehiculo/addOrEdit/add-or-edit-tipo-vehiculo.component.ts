@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ComboBox } from 'src/app/core/models/Comboxbox';
 import { TipoVehiculo } from 'src/app/core/models/TipoVehiculo';
 import { ComboboxService } from 'src/app/core/services/combobox.service';
@@ -22,6 +23,7 @@ export class AddOrEditTipoVehiculoComponent implements OnInit {
   tipoVehiculo!: TipoVehiculo;
 
   constructor(
+    private toast: ToastrService,
     private router: Router,
     private activedRouted: ActivatedRoute,
     private tipoVehiculoService: TipoVehiculoService,
@@ -51,8 +53,7 @@ export class AddOrEditTipoVehiculoComponent implements OnInit {
   save() {
     this.tipoVehiculoService.add(this.tipoVehiculoForm.value).subscribe(() => {
       this.tipoVehiculoForm.reset();
-      console.log('guardado');
-
+      this.toast.success('Guardado')
     })
   }
   update() {
@@ -60,7 +61,7 @@ export class AddOrEditTipoVehiculoComponent implements OnInit {
     let data = { ...this.tipoVehiculo, ...this.tipoVehiculoForm.value }
 
     this.tipoVehiculoService.update(data).subscribe(() => {
-      console.log('actualizado');
+      this.toast.success('Actualizado')
       
     })
   }

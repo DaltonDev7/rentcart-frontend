@@ -6,6 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'rentas'
+  },
+  {
+    path: 'rentas',
     loadChildren: () => import("./rentaDevolucion/renta.module").then(m => m.RentaModule)
   },
   {

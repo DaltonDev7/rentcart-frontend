@@ -24,11 +24,11 @@ export class ListInspeccionComponent implements OnInit {
 
 
   add(tipoVista: string) {
-    this.route.navigate(['/renta/inspeccion/addOrUpdate'], { relativeTo: this.activedRouted, state: { tipoVista } })
+    this.route.navigate(['/inspeccion/addOrUpdate'], { relativeTo: this.activedRouted, state: { tipoVista } })
   }
 
   update(idInspeccion?: number) {
-    this.route.navigate(['/renta/inspeccion/addOrUpdate'], { relativeTo: this.activedRouted, state: { idInspeccion } })
+    this.route.navigate(['/inspeccion/addOrUpdate'], { relativeTo: this.activedRouted, state: { idInspeccion } })
   }
 
   remove(idInspeccion?: number) {

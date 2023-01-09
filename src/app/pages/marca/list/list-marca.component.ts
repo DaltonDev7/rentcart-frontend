@@ -26,11 +26,11 @@ export class ListMarcaComponent implements OnInit {
 
   add(tipoVista: string) {
     console.log(tipoVista);
-    this.router.navigate(['/renta/marca/addOrEdit'], { relativeTo: this.activedRouted, state: { tipoVista } })
+    this.router.navigate(['/marca/addOrEdit'], { relativeTo: this.activedRouted, state: { tipoVista } })
   }
 
   update(idMarca?: number) {
-    this.router.navigate(['/renta/marca/addOrEdit'], { relativeTo: this.activedRouted, state: {  idMarca } })
+    this.router.navigate(['/marca/addOrEdit'], { relativeTo: this.activedRouted, state: {  idMarca } })
   }
 
   remove(idmodelo?: number) {

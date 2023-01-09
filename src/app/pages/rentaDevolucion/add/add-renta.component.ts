@@ -67,9 +67,7 @@ export class AddRentaComponent implements OnInit {
         console.log(renta);
         this.renta = renta
         this.rentaForm.patchValue(renta)
-
-
-
+        
         this.rentaForm.get('FechaRenta')?.disable()
         this.rentaForm.get('FechaDevolucion')?.disable()
         this.rentaForm.updateValueAndValidity()

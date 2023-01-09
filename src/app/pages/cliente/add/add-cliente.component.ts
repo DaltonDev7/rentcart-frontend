@@ -64,10 +64,6 @@ export class AddClienteComponent implements OnInit {
     let isValid = this.generalService.isValidCedula(this.clienteForm.get('Cedula')?.value)
 
     if (isValid) {
-
-      
-
-
       this.clienteService.add(this.clienteForm.value).subscribe(() => {
         this.clienteForm.reset();
         this.toastr.success(toastMessage.updateSuccess);
@@ -75,11 +71,8 @@ export class AddClienteComponent implements OnInit {
     }else{
       this.toastr.error("Cedula invalida")
     }
-
-
-
-
   }
+  
   update() {
 
     let data = { ...this.cliente, ...this.clienteForm.value }

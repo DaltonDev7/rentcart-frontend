@@ -34,7 +34,7 @@ export class AddOrEditComponent implements OnInit {
     private activedRouted: ActivatedRoute,
     private empleadoService: EmpleadoService,
     private comboBoxService: ComboboxService,
-    private generalService : GeneralService
+    private generalService: GeneralService
   ) {
     this.idEmpleado = this.router.getCurrentNavigation()?.extras.state?.['idEmpleado']
     this.tipoVista = this.router.getCurrentNavigation()?.extras.state?.['tipoVista']
@@ -51,11 +51,11 @@ export class AddOrEditComponent implements OnInit {
         this.empleado = empleado
         this.empleadoForm.patchValue(empleado)
 
-        this.generalService.setFormatDate(this.empleadoForm , 'FechaIngreso')
+        this.generalService.setFormatDate(this.empleadoForm, 'FechaIngreso')
       })
     }
 
-    
+
     this.validateTipoVista()
 
   }
@@ -65,24 +65,43 @@ export class AddOrEditComponent implements OnInit {
 
     let isValid = this.generalService.isValidCedula(this.empleadoForm.get('Cedula')?.value)
 
-    if (isValid){
-      this.empleadoService.add(this.empleadoForm.value).subscribe(() => {
-        this.empleadoForm.reset();
-        console.log('guardado');
-      })
-    }else{
+    if (!isValid) {
       this.toastr.error("Cedula invalida")
+      return;
     }
 
+    this.empleadoService.existeEmpleado(this.empleadoForm.get('Cedula')?.value).subscribe({
+      next: (data) => {
+        if (data) {
+          this.toastr.warning("Esta cedula esta registrada")
+        } else {
+          this.registrarEmpleado()
+        }
+      }
+    })
   }
+
+  registrarEmpleado() {
+    this.empleadoService.add(this.empleadoForm.value).subscribe({
+      next: () => {
+        this.toastr.success("Guardado")
+        this.empleadoForm.reset();
+        console.log('guardado');
+      },
+      error: () => {
+        this.toastr.error("Ha ocurrido un error. Favor revisar nuevamente, en caso contrario contacte con soporte")
+      }
+    })
+  }
+
   update() {
 
     let data = { ...this.empleado, ...this.empleadoForm.value }
     console.log(data);
-    
+
     this.empleadoService.update(data).subscribe(() => {
-      console.log('actualizado');
-      
+      this.toastr.success("Actualizado")
+
     })
   }
 

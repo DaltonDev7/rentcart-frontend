@@ -26,11 +26,11 @@ export class ListTipoCombustibleComponent implements OnInit {
 
   add(tipoVista: string) {
     console.log(tipoVista);
-    this.router.navigate(['/renta/tipoCombustible/addOrEdit'], { relativeTo: this.activedRouted, state: { tipoVista } })
+    this.router.navigate(['/tipoCombustible/addOrEdit'], { relativeTo: this.activedRouted, state: { tipoVista } })
   }
 
   update(idTipoCombustible?: number) {
-    this.router.navigate(['/renta/tipoCombustible/addOrEdit'], { relativeTo: this.activedRouted, state: { idTipoCombustible } })
+    this.router.navigate(['/tipoCombustible/addOrEdit'], { relativeTo: this.activedRouted, state: { idTipoCombustible } })
   }
   remove(idCombustible?: number) {
     Swal.fire({

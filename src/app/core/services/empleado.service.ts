@@ -26,17 +26,26 @@ export class EmpleadoService {
   add(empleado: Empleado) {
     return this.http.post(`${environment.rentCarApi}Empleado`, empleado)
   }
+
   update(empleado: Empleado) {
     return this.http.put(`${environment.rentCarApi}Empleado/Update`, empleado)
   }
+
   getById(Idempleado: number) {
     return this.http.get(`${environment.rentCarApi}Empleado/GetById/${Idempleado}`)
   }
+
   remove(Idempleado?: number) {
     return this.http.delete(`${environment.rentCarApi}Empleado/remove/${Idempleado}`)
   }
+
   getAll() {
     return this.http.get(`${environment.rentCarApi}Empleado`)
   }
+
+  existeEmpleado(cedula: string) {
+    return this.http.get(`${environment.rentCarApi}Empleado/existeEmpleado/${cedula}`)
+  }
+
 
 }

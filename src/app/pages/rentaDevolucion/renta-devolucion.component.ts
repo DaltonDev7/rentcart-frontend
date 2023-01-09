@@ -53,11 +53,11 @@ export class RentaDevolucionComponent implements OnInit {
 
   add(tipoVista: string) {
     console.log(tipoVista);
-    this.router.navigate(['/renta/addOrEdit'], { relativeTo: this.activedRouted, state: { tipoVista } })
+    this.router.navigate(['/addOrEdit'], { state: { tipoVista } })
   }
 
   update(idRenta?: number) {
-    this.router.navigate(['/renta/addOrEdit'], { relativeTo: this.activedRouted, state: { idRenta } })
+    this.router.navigate(['/addOrEdit'], { relativeTo: this.activedRouted, state: { idRenta } })
   }
 
   remove(idRenta?: number) {

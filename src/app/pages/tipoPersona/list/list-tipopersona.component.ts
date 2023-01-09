@@ -13,11 +13,19 @@ export class ListTipopersonaComponent implements OnInit {
   constructor(private activedRouted: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activedRouted.data.subscribe((data:any) => {
+    this.activedRouted.data.subscribe((data: any) => {
       this.tipoPersona = data.tipoPersona
       console.log(this.tipoPersona);
-      
+
     })
+  }
+
+  public remove(id: number | undefined) {
+
+  }
+
+  public update(id: number | undefined) {
+
   }
 
 }

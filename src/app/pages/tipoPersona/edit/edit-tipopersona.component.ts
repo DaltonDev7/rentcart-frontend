@@ -42,7 +42,7 @@ export class EditTipopersonaComponent implements OnInit {
 
     this.tipoPersonaService.update(tipoPersona).subscribe((data) => {
       this.tipoPersonaForm.reset();
-      this.router.navigate(['/renta/tipoPersona'])
+      this.router.navigate(['/tipoPersona'])
       console.log('actualizado');
     })
 

@@ -26,11 +26,11 @@ export class ListTipovehiculoComponent implements OnInit {
 
   add(tipoVista: string) {
     console.log(tipoVista);
-    this.router.navigate(['/renta/tipoVehiculos/addOrEdit'], { relativeTo: this.activedRouted, state: { tipoVista } })
+    this.router.navigate(['/tipoVehiculos/addOrEdit'], { relativeTo: this.activedRouted, state: { tipoVista } })
   }
 
   update(idTipoVehiculo?: number) {
-    this.router.navigate(['/renta/tipoVehiculos/addOrEdit'], { relativeTo: this.activedRouted, state: {  idTipoVehiculo } })
+    this.router.navigate(['/tipoVehiculos/addOrEdit'], { relativeTo: this.activedRouted, state: {  idTipoVehiculo } })
   }
   remove(idTipo?: number) {
     Swal.fire({

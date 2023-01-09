@@ -22,11 +22,11 @@ export class ListModeloComponent implements OnInit {
   }
 
   add(tipoVista: string) {
-    this.route.navigate(['/renta/modelo/addOrUpdate'], { relativeTo: this.activedRouted, state: { tipoVista } })
+    this.route.navigate(['/modelo/addOrUpdate'], { relativeTo: this.activedRouted, state: { tipoVista } })
   }
 
   update(idModelo?: number) {
-    this.route.navigate(['/renta/modelo/addOrUpdate'], { relativeTo: this.activedRouted, state: { idModelo } })
+    this.route.navigate(['/modelo/addOrUpdate'], { relativeTo: this.activedRouted, state: { idModelo } })
   }
   remove(idmodelo?: number) {
     Swal.fire({

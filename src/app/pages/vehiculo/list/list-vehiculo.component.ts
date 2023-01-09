@@ -18,17 +18,16 @@ export class ListVehiculoComponent implements OnInit {
   ngOnInit(): void {
     this.activedRouted.data.subscribe((data: any) => {
       console.log(data);
-
       this.vehiculos = data.vehiculos
     })
   }
 
   add(tipoVista: string) {
-    this.route.navigate(['/renta/vehiculos/addOrEdit'], { relativeTo: this.activedRouted, state: { tipoVista } })
+    this.route.navigate(['/vehiculos/addOrEdit'], { relativeTo: this.activedRouted, state: { tipoVista } })
   }
 
   update(idVehiculo?: number) {
-    this.route.navigate(['/renta/vehiculos/addOrEdit'], { relativeTo: this.activedRouted, state: { idVehiculo } })
+    this.route.navigate(['/vehiculos/addOrEdit'], { relativeTo: this.activedRouted, state: { idVehiculo } })
   }
   remove(idvehiculo?: number) {
     Swal.fire({

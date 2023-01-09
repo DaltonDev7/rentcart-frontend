@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ComboBox, ComboxCombustible, ComboxRespuestaCorta } from 'src/app/core/models/Comboxbox';
 import { Inspeccion } from 'src/app/core/models/Inspeccion';
 import { ComboboxService } from 'src/app/core/services/combobox.service';
@@ -27,7 +28,13 @@ export class AddInspeccionComponent implements OnInit {
   idModelo?: number;
   inspeccion!: Inspeccion;
 
-  constructor(private inspeccionService: InspeccionService, private comboxService: ComboboxService, private router: Router, private generalService: GeneralService) {
+  constructor(
+    private toast: ToastrService,
+    private inspeccionService: InspeccionService,
+    private comboxService: ComboboxService,
+    private router: Router,
+    private generalService: GeneralService
+  ) {
     this.idModelo = this.router.getCurrentNavigation()?.extras.state?.['idInspeccion']
     this.tipoVista = this.router.getCurrentNavigation()?.extras.state?.['tipoVista']
   }
@@ -53,9 +60,14 @@ export class AddInspeccionComponent implements OnInit {
   save() {
     this.generalService.validateChecbox(this.inspeccionForm)
     console.log(this.inspeccionForm.value);
-    this.inspeccionService.add(this.inspeccionForm.value).subscribe(() => {
-      this.inspeccionForm.reset();
-      console.log('guardado');
+    this.inspeccionService.add(this.inspeccionForm.value).subscribe({
+      next: () => {
+        this.inspeccionForm.reset()
+        this.toast.success("Guardado")
+      },
+      error:()=>{
+        this.toast.success("Ha ocurrido un error")
+      }
     })
   }
 
